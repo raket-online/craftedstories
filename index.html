@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafted Stories – Elk product vertelt een verhaal | Amsterdam</title>
+  <meta name="description" content="Crafted Stories is een winkel in de Jordaan, Amsterdam. Wij verkopen handgemaakte producten met een verhaal en bieden werkplekken aan mensen die een nieuwe kans verdienen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#941a10',
+            'primary-dark': '#6d1209',
+            'primary-light': '#b82214',
+            cream: '#f0ebe0',
+            'cream-dark': '#e2d9c8',
+            'warm-brown': '#2c1810',
+            'warm-gray': '#6b5a52',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Lato', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #941a10;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .hero-pattern {
+      background-color: #f0ebe0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23941a10' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .scroll-reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    [data-lang="en"] { display: none; }
+    html[lang="en"] [data-lang="nl"] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: revert; }
+  </style>
+</head>
+<body class="bg-white text-warm-brown">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-white px-4 py-2 rounded z-50">
+    <span data-lang="nl">Naar hoofdinhoud</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="bg-white border-b border-cream-dark sticky top-0 z-40" role="banner">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between" aria-label="Hoofdnavigatie">
+      <a href="index.html" aria-label="Crafted Stories – home">
+        <img src="logo.webp" alt="Crafted Stories" class="h-12 w-auto">
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-8 list-none" role="list">
+          <li><a href="index.html" class="nav-link active text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Home</a></li>
+          <li>
+            <a href="producten.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">
+              <span data-lang="nl">Collectie</span><span data-lang="en">Collection</span>
+            </a>
+          </li>
+          <li><a href="over-ons.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Our Story</a></li>
+          <li><a href="contact.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Contact</a></li>
+        </ul>
+        <button id="lang-toggle" class="text-warm-gray hover:text-primary text-xs tracking-widest uppercase border border-cream-dark px-3 py-1 transition-colors font-sans" aria-label="Switch language">
+          EN
+        </button>
+      </div>
+
+      <button id="mobile-toggle" class="md:hidden text-warm-brown p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cream-dark">
+      <ul class="flex flex-col py-4 px-4 gap-1 list-none">
+        <li><a href="index.html" class="block py-3 px-2 text-primary text-sm tracking-widest uppercase border-b border-cream">Home</a></li>
+        <li><a href="producten.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
+        <li><a href="over-ons.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream">Our Story</a></li>
+        <li><a href="contact.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream">Contact</a></li>
+        <li><button id="lang-toggle-mobile" class="py-3 px-2 text-warm-gray text-sm tracking-widest uppercase font-sans">EN</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main-content" role="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-pattern min-h-[90vh] flex items-center relative" aria-labelledby="hero-heading">
+      <div class="max-w-6xl mx-auto px-4 py-24 grid md:grid-cols-2 gap-12 items-center">
+
+        <div class="order-2 md:order-1">
+          <p class="text-primary text-xs tracking-widest uppercase mb-6 font-sans">
+            <span data-lang="nl">Noordermarkt · Amsterdam · Jordaan</span>
+            <span data-lang="en">Noordermarkt · Amsterdam · Jordaan</span>
+          </p>
+
+          <h1 id="hero-heading" class="font-serif text-5xl md:text-6xl lg:text-7xl text-warm-brown leading-tight mb-6">
+            <span data-lang="nl">Wij zien <em class="text-primary not-italic">jou.</em></span>
+            <span data-lang="en">We see <em class="text-primary not-italic">you.</em></span>
+          </h1>
+
+          <p class="text-warm-gray text-lg leading-relaxed mb-4 max-w-md font-light" data-lang="nl">
+            Crafted Stories is meer dan een winkel. Het is een plek waar handgemaakte producten een verhaal vertellen — over hoop, over vakmanschap, over nieuwe kansen.
+          </p>
+          <p class="text-warm-gray text-lg leading-relaxed mb-8 max-w-md font-light" data-lang="en">
+            Crafted Stories is more than a shop. It's a place where handcrafted products tell a story — about hope, craftsmanship, and second chances.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="over-ons.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 text-sm tracking-widest uppercase transition-colors font-sans">
+              <span data-lang="nl">Ontdek ons verhaal</span>
+              <span data-lang="en">Discover our story</span>
+            </a>
+            <a href="producten.html" class="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 text-sm tracking-widest uppercase transition-colors font-sans">
+              <span data-lang="nl">Bekijk collectie</span>
+              <span data-lang="en">View collection</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="order-1 md:order-2">
+          <div class="relative">
+            <img src="images/IMG-20260319-WA0003.jpg" alt="Interieur van Crafted Stories — een sfeervolle winkel vol handgemaakte producten en bloemen" class="w-full aspect-[4/5] object-cover shadow-lg">
+            <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary opacity-10 -z-10"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-warm-gray opacity-50" aria-hidden="true">
+        <span class="text-xs tracking-widest uppercase font-sans" data-lang="nl">Ontdek meer</span>
+        <span class="text-xs tracking-widest uppercase font-sans" data-lang="en">Discover more</span>
+        <div class="w-px h-8 bg-warm-gray animate-bounce"></div>
+      </div>
+    </section>
+
+    <!-- ===== WAT WIJ ZIJN ===== -->
+    <section class="py-24 bg-white" aria-labelledby="intro-heading">
+      <div class="max-w-3xl mx-auto px-4 text-center scroll-reveal">
+        <p class="text-primary text-xs tracking-widest uppercase mb-4 font-sans">
+          <span data-lang="nl">Wie we zijn</span>
+          <span data-lang="en">Who we are</span>
+        </p>
+        <h2 id="intro-heading" class="font-serif text-4xl md:text-5xl text-warm-brown mb-8">
+          <span data-lang="nl">Elk product vertelt een verhaal</span>
+          <span data-lang="en">Every product tells a story</span>
+        </h2>
+        <p class="text-warm-gray text-lg leading-relaxed font-light mb-6" data-lang="nl">
+          In onze winkel aan de Noordermarkt vind je handgemaakte cadeaus, eerlijke lifestyle producten en tweedehands kleding. Maar het bijzondere zit niet alleen in wat we verkopen — het zit in wie het maakt, en wat jouw aankoop betekent.
+        </p>
+        <p class="text-warm-gray text-lg leading-relaxed font-light mb-6" data-lang="en">
+          In our shop at the Noordermarkt you'll find handcrafted gifts, fair lifestyle products and secondhand clothing. But what makes us special isn't just what we sell — it's who makes it, and what your purchase means.
+        </p>
+        <p class="text-warm-gray text-lg leading-relaxed font-light" data-lang="nl">
+          Onze producten worden gemaakt door mensen die een eerlijke kans verdienen. In onze winkel werken mensen uit kwetsbare doelgroepen die bij ons de ruimte krijgen om te groeien. Zelfs door een koffie te drinken bij ons draag je bij aan een stukje hoop.
+        </p>
+        <p class="text-warm-gray text-lg leading-relaxed font-light" data-lang="en">
+          Our products are made by people who deserve a fair chance. In our shop, people from vulnerable backgrounds find a safe place to grow. Even by having a coffee with us, you're contributing to someone's hope for a better future.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== DRIE VERHALEN ===== -->
+    <section class="py-24 hero-pattern" aria-labelledby="stories-heading">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16 scroll-reveal">
+          <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
+            <span data-lang="nl">Verhalen uit de winkel</span>
+            <span data-lang="en">Stories from the shop</span>
+          </p>
+          <h2 id="stories-heading" class="font-serif text-4xl text-warm-brown mb-4">
+            <span data-lang="nl">Hoop heeft vele gezichten</span>
+            <span data-lang="en">Hope has many faces</span>
+          </h2>
+          <div class="w-12 h-px bg-primary mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10">
+
+          <!-- Verhaal 1: Sjaal met Verhaal -->
+          <article class="bg-white scroll-reveal overflow-hidden" aria-labelledby="story-1">
+            <img src="images/IMG-20260319-WA0007.jpg" alt="Kleurrijke kussens en textielproducten in de winkel" class="w-full h-48 object-cover">
+            <div class="p-8">
+            <p class="text-primary text-xs tracking-widest uppercase mb-2 font-sans">
+              <span data-lang="nl">De makers</span>
+              <span data-lang="en">The makers</span>
+            </p>
+            <h3 id="story-1" class="font-serif text-xl text-warm-brown mb-4">
+              <span data-lang="nl">Vilten met gevoel</span>
+              <span data-lang="en">Felt with feeling</span>
+            </h3>
+            <p class="text-warm-gray font-light leading-relaxed text-sm" data-lang="nl">
+              In India werkt een groep blinde ambachtslieden in een van de ateliers van Sjaal met Verhaal. Mensen die normaal weinig kans hebben op werk, maken hier prachtige viltproducten. Een eerlijk loon, een veilige werkplek — en producten die jij in onze winkel vindt.
+            </p>
+            <p class="text-warm-gray font-light leading-relaxed text-sm" data-lang="en">
+              In India, a group of blind artisans work in one of the ateliers of Sjaal met Verhaal. People who normally have little chance of employment create beautiful felt products here. A fair wage, a safe workplace — and products you'll find in our shop.
+            </p>
+            </div>
+          </article>
+
+          <!-- Verhaal 2: Sieraden uit Brazilië -->
+          <article class="bg-white scroll-reveal overflow-hidden" style="transition-delay: 0.15s" aria-labelledby="story-2">
+            <img src="images/IMG-20260319-WA0011.jpg" alt="Handgemaakte cadeaus en keramiek op een tafel in de winkel" class="w-full h-48 object-cover">
+            <div class="p-8">
+            <p class="text-primary text-xs tracking-widest uppercase mb-2 font-sans">
+              <span data-lang="nl">Nieuw begin</span>
+              <span data-lang="en">New beginnings</span>
+            </p>
+            <h3 id="story-2" class="font-serif text-xl text-warm-brown mb-4">
+              <span data-lang="nl">Sieraden van hars en hoop</span>
+              <span data-lang="en">Jewellery of resin and hope</span>
+            </h3>
+            <p class="text-warm-gray font-light leading-relaxed text-sm" data-lang="nl">
+              In Brazilië maken vrouwen die uit de sekswerkindustrie zijn gestapt prachtige sieraden van hars. Ze kozen voor een ander leven en vonden een veilige werkplek, een opleiding en een eerlijk inkomen. Hun sieraden dragen een verhaal van moed en een nieuw begin.
+            </p>
+            <p class="text-warm-gray font-light leading-relaxed text-sm" data-lang="en">
+              In Brazil, women who left the sex trade create beautiful resin jewellery. They chose a different life and found a safe workplace, training and a fair income. Their jewellery carries a story of courage and new beginnings.
+            </p>
+            </div>
+          </article>
+
+          <!-- Verhaal 3: Werkplek in de winkel -->
+          <article class="bg-white scroll-reveal overflow-hidden" style="transition-delay: 0.3s" aria-labelledby="story-3">
+            <img src="images/IMG-20260319-WA0009.jpg" alt="De toonbank van Crafted Stories met kaarten en warme verlichting" class="w-full h-48 object-cover">
+            <div class="p-8">
+            <p class="text-primary text-xs tracking-widest uppercase mb-2 font-sans">
+              <span data-lang="nl">Onze winkel</span>
+              <span data-lang="en">Our shop</span>
+            </p>
+            <h3 id="story-3" class="font-serif text-xl text-warm-brown mb-4">
+              <span data-lang="nl">Een opstapje naar de toekomst</span>
+              <span data-lang="en">A stepping stone to the future</span>
+            </h3>
+            <p class="text-warm-gray font-light leading-relaxed text-sm" data-lang="nl">
+              In onze winkel werken mensen uit kwetsbare doelgroepen. Ze leren hier alles — van barista zijn tot klanten helpen. Een veilige plek om zichzelf te ontdekken en te groeien. Na een half jaar stromen ze door naar een betaalde baan. Dat is hoop in de praktijk.
+            </p>
+            <p class="text-warm-gray font-light leading-relaxed text-sm" data-lang="en">
+              In our shop, people from vulnerable backgrounds find a place to learn and grow — from making coffee to helping customers. A safe space to discover themselves. After six months, they move on to paid employment. That's hope in action.
+            </p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-14 scroll-reveal">
+          <a href="over-ons.html" class="text-primary text-sm tracking-widest uppercase font-sans inline-flex items-center gap-2 hover:gap-4 transition-all">
+            <span data-lang="nl">Lees meer verhalen</span>
+            <span data-lang="en">Read more stories</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTEN TEASER ===== -->
+    <section class="py-24 bg-white" aria-labelledby="products-heading">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="scroll-reveal">
+            <p class="text-primary text-xs tracking-widest uppercase mb-4 font-sans">
+              <span data-lang="nl">Onze collectie</span>
+              <span data-lang="en">Our collection</span>
+            </p>
+            <h2 id="products-heading" class="font-serif text-4xl text-warm-brown mb-6">
+              <span data-lang="nl">Eerlijk, uniek en met een verhaal</span>
+              <span data-lang="en">Fair, unique and with a story</span>
+            </h2>
+            <p class="text-warm-gray leading-relaxed font-light mb-6" data-lang="nl">
+              Van handgemaakte sieraden en vilten producten tot unieke cadeaus en tweedehands kleding — alles in onze winkel is met zorg geselecteerd. Elk product geeft de maker een eerlijk loon en een betere toekomst.
+            </p>
+            <p class="text-warm-gray leading-relaxed font-light mb-6" data-lang="en">
+              From handcrafted jewellery and felt products to unique gifts and secondhand clothing — everything in our shop is carefully selected. Every product gives the maker a fair wage and a brighter future.
+            </p>
+            <a href="producten.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 text-sm tracking-widest uppercase transition-colors font-sans inline-block">
+              <span data-lang="nl">Bekijk collectie</span>
+              <span data-lang="en">View collection</span>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 scroll-reveal">
+            <div class="relative overflow-hidden aspect-square group">
+              <img src="images/IMG-20260319-WA0008.jpg" alt="Kussens en textiel van Sjaal met Verhaal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-warm-brown/60 to-transparent flex items-end p-4">
+                <p class="font-serif text-white text-sm" data-lang="nl">Textiel & kussens</p>
+                <p class="font-serif text-white text-sm" data-lang="en">Textiles & cushions</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden aspect-square group">
+              <img src="images/IMG-20260319-WA0010.jpg" alt="Sfeerhoekje met droogbloemen en boeken" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-warm-brown/60 to-transparent flex items-end p-4">
+                <p class="font-serif text-white text-sm" data-lang="nl">Home & sfeer</p>
+                <p class="font-serif text-white text-sm" data-lang="en">Home & lifestyle</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden aspect-square group">
+              <img src="images/IMG-20260319-WA0011.jpg" alt="Handgemaakte cadeaus en keramiek" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-warm-brown/60 to-transparent flex items-end p-4">
+                <p class="font-serif text-white text-sm" data-lang="nl">Cadeaus</p>
+                <p class="font-serif text-white text-sm" data-lang="en">Gifts</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden aspect-square group">
+              <img src="images/IMG-20260319-WA0013.jpg" alt="Tweedehands kleding afdeling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-warm-brown/60 to-transparent flex items-end p-4">
+                <p class="font-serif text-white text-sm" data-lang="nl">Tweedehands</p>
+                <p class="font-serif text-white text-sm" data-lang="en">Secondhand</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUOTE SECTION ===== -->
+    <section class="py-20 bg-primary text-white" aria-label="Quote">
+      <div class="max-w-4xl mx-auto px-4 text-center scroll-reveal">
+        <blockquote>
+          <p class="font-serif text-3xl md:text-4xl italic leading-relaxed mb-6">
+            "We craft stories. Let them craft yours."
+          </p>
+        </blockquote>
+        <div class="w-12 h-px bg-white opacity-40 mx-auto mb-6"></div>
+        <p class="text-sm tracking-widest uppercase opacity-70 font-sans" data-lang="nl">
+          Er is altijd hoop op een beter leven. Zelfs door koffie te drinken in onze winkel draag je daaraan bij.
+        </p>
+        <p class="text-sm tracking-widest uppercase opacity-70 font-sans" data-lang="en">
+          There is always hope for a better life. Even by having coffee in our shop, you're part of that story.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== BEZOEK ONS ===== -->
+    <section class="py-24 hero-pattern" aria-labelledby="visit-heading">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+        <div class="scroll-reveal">
+          <p class="text-primary text-xs tracking-widest uppercase mb-4 font-sans">
+            <span data-lang="nl">Kom langs</span>
+            <span data-lang="en">Visit us</span>
+          </p>
+          <h2 id="visit-heading" class="font-serif text-4xl text-warm-brown mb-6">
+            <span data-lang="nl">Een pareltje in de Jordaan</span>
+            <span data-lang="en">A hidden gem in the Jordaan</span>
+          </h2>
+          <p class="text-warm-gray leading-relaxed font-light mb-6" data-lang="nl">
+            Onze bezoekers noemen ons een pareltje. Kom binnen voor goede koffie, een praatje en ontdek
+            producten die je nergens anders vindt. Onze medewerkers ontvangen je met open armen.
+          </p>
+          <p class="text-warm-gray leading-relaxed font-light mb-6" data-lang="en">
+            Our visitors call us a hidden gem. Come in for great coffee, a chat and discover
+            products you won't find anywhere else. Our team welcomes you with open arms.
+          </p>
+
+          <div class="space-y-4 text-sm">
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5" aria-hidden="true">📍</span>
+              <div>
+                <p class="font-semibold text-warm-brown">Noordermarkt 45</p>
+                <p class="text-warm-gray font-light">1015 NA Amsterdam</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5" aria-hidden="true">🕐</span>
+              <div>
+                <p class="font-semibold text-warm-brown" data-lang="nl">Maandag t/m zaterdag</p>
+                <p class="font-semibold text-warm-brown" data-lang="en">Monday to Saturday</p>
+                <p class="text-warm-gray font-light">10:00 – 17:00</p>
+                <p class="text-warm-gray font-light" data-lang="nl">Zondag gesloten</p>
+                <p class="text-warm-gray font-light" data-lang="en">Closed on Sundays</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-primary mt-0.5" aria-hidden="true">✉️</span>
+              <div>
+                <a href="mailto:info@craftedstories.nl" class="text-primary hover:text-primary-dark transition-colors">info@craftedstories.nl</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a href="contact.html" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 text-sm tracking-widest uppercase transition-colors font-sans inline-block">
+              <span data-lang="nl">Plan je bezoek</span>
+              <span data-lang="en">Plan your visit</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="scroll-reveal">
+          <div class="relative">
+            <img src="images/IMG-20260319-WA0006.jpg" alt="De gezellige koffiehoek van Crafted Stories met droogbloemen en warme verlichting" class="w-full aspect-[4/5] object-cover shadow-lg">
+            <div class="absolute -bottom-4 -left-4 w-full h-full border-2 border-primary opacity-10 -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MEEDOEN ===== -->
+    <section class="py-20 bg-white" aria-labelledby="join-heading">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-14 scroll-reveal">
+          <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
+            <span data-lang="nl">Doe mee</span>
+            <span data-lang="en">Get involved</span>
+          </p>
+          <h2 id="join-heading" class="font-serif text-4xl text-warm-brown mb-4">
+            <span data-lang="nl">Jij kunt bijdragen</span>
+            <span data-lang="en">You can make a difference</span>
+          </h2>
+          <div class="w-12 h-px bg-primary mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-8 border border-cream scroll-reveal">
+            <div class="text-3xl mb-4" aria-hidden="true">🛍️</div>
+            <h3 class="font-serif text-lg text-warm-brown mb-3" data-lang="nl">Koop met impact</h3>
+            <h3 class="font-serif text-lg text-warm-brown mb-3" data-lang="en">Shop with impact</h3>
+            <p class="text-warm-gray text-sm font-light leading-relaxed" data-lang="nl">
+              Elk product dat je koopt geeft een maker een eerlijk loon en een betere toekomst.
+            </p>
+            <p class="text-warm-gray text-sm font-light leading-relaxed" data-lang="en">
+              Every product you buy gives a maker a fair wage and a brighter future.
+            </p>
+          </div>
+          <div class="text-center p-8 border border-cream scroll-reveal" style="transition-delay: 0.1s">
+            <div class="text-3xl mb-4" aria-hidden="true">👕</div>
+            <h3 class="font-serif text-lg text-warm-brown mb-3" data-lang="nl">Breng kleding in</h3>
+            <h3 class="font-serif text-lg text-warm-brown mb-3" data-lang="en">Donate clothing</h3>
+            <p class="text-warm-gray text-sm font-light leading-relaxed" data-lang="nl">
+              Schone, up-to-date kleding is welkom. De opbrengst gaat naar onze sociale projecten.
+            </p>
+            <p class="text-warm-gray text-sm font-light leading-relaxed" data-lang="en">
+              Clean, up-to-date clothing is welcome. The proceeds go directly to our social projects.
+            </p>
+          </div>
+          <div class="text-center p-8 border border-cream scroll-reveal" style="transition-delay: 0.2s">
+            <div class="text-3xl mb-4" aria-hidden="true">🤝</div>
+            <h3 class="font-serif text-lg text-warm-brown mb-3" data-lang="nl">Word vrijwilliger</h3>
+            <h3 class="font-serif text-lg text-warm-brown mb-3" data-lang="en">Become a volunteer</h3>
+            <p class="text-warm-gray text-sm font-light leading-relaxed" data-lang="nl">
+              Help mee in de winkel en sta naast mensen die een nieuwe kans verdienen.
+            </p>
+            <p class="text-warm-gray text-sm font-light leading-relaxed" data-lang="en">
+              Help out in the shop and stand alongside people who deserve a second chance.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 scroll-reveal">
+          <a href="contact.html" class="border border-warm-brown text-warm-brown hover:bg-warm-brown hover:text-white px-10 py-3 text-sm tracking-widest uppercase transition-colors font-sans inline-block">
+            <span data-lang="nl">Neem contact op</span>
+            <span data-lang="en">Get in touch</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-warm-brown text-white py-16" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <img src="logo.webp" alt="Crafted Stories" class="h-10 w-auto mb-4 brightness-0 invert opacity-90">
+          <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="nl">
+            Handgemaakte producten met een verhaal. Een plek van hoop, eerlijkheid en verbinding in het hart van Amsterdam.
+          </p>
+          <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="en">
+            Handcrafted products with a story. A place of hope, honesty and connection in the heart of Amsterdam.
+          </p>
+          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="nl">
+            Crafted Stories is onderdeel van <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">Scharlaken Koord</a> / Tot Heil des Volks.
+          </p>
+          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="en">
+            Crafted Stories is part of <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">Scharlaken Koord</a> / Tot Heil des Volks.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-lg mb-4" data-lang="nl">Navigatie</h3>
+          <h3 class="font-serif text-lg mb-4" data-lang="en">Navigate</h3>
+          <ul class="space-y-2 list-none">
+            <li><a href="index.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans">Home</a></li>
+            <li><a href="producten.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
+            <li><a href="over-ons.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans">Our Story</a></li>
+            <li><a href="contact.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-serif text-lg mb-4" data-lang="nl">Bezoek ons</h3>
+          <h3 class="font-serif text-lg mb-4" data-lang="en">Visit us</h3>
+          <address class="not-italic text-white opacity-60 text-sm space-y-2 font-light font-sans">
+            <p>Noordermarkt 45</p>
+            <p>1015 NA Amsterdam</p>
+            <p data-lang="nl">Ma–Za: 10:00–17:00</p>
+            <p data-lang="en">Mon–Sat: 10:00–17:00</p>
+            <p><a href="mailto:info@craftedstories.nl" class="hover:opacity-100 transition-opacity">info@craftedstories.nl</a></p>
+          </address>
+        </div>
+      </div>
+      <div class="border-t border-white border-opacity-10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-white opacity-40 text-xs font-sans">
+        <p>&copy; 2026 Crafted Stories. <span data-lang="nl">Alle rechten voorbehouden.</span><span data-lang="en">All rights reserved.</span></p>
+        <p>Noordermarkt 45, Amsterdam</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // Mobile menu
+      var toggle = document.getElementById('mobile-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          var isOpen = menu.classList.toggle('hidden') === false;
+          this.setAttribute('aria-expanded', String(isOpen));
+          this.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+        });
+      }
+
+      // Language toggle
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        var btns = document.querySelectorAll('#lang-toggle, #lang-toggle-mobile');
+        btns.forEach(function (btn) {
+          btn.textContent = lang === 'nl' ? 'EN' : 'NL';
+        });
+        try { localStorage.setItem('cs-lang', lang); } catch (e) {}
+      }
+
+      var savedLang;
+      try { savedLang = localStorage.getItem('cs-lang'); } catch (e) {}
+      if (savedLang === 'en') setLang('en');
+
+      document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(document.documentElement.lang === 'nl' ? 'en' : 'nl');
+        });
+      });
+
+      // Scroll reveal
+      var reveals = document.querySelectorAll('.scroll-reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+</body>
+</html>
