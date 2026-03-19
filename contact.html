@@ -7,7 +7,8 @@
     <title data-lang="en" style="display:none;">Contact - Crafted Stories</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -321,32 +322,34 @@
                         <h3 class="font-serif text-2xl font-bold text-warm-brown mb-6" data-lang="nl">Bezoek ons</h3>
                         <h3 class="font-serif text-2xl font-bold text-warm-brown mb-6" data-lang="en">Visit us</h3>
 
-                        <div class="space-y-6">
+                        <div class="space-y-5">
                             <!-- Address -->
-                            <div>
-                                <p class="text-sm text-warm-gray font-semibold uppercase tracking-wide mb-2" data-lang="nl">Adres</p>
-                                <p class="text-sm text-warm-gray uppercase tracking-wide mb-2" data-lang="en">Address</p>
-                                <p class="text-lg text-warm-brown font-semibold">Noordermarkt 45</p>
-                                <p class="text-lg text-warm-brown">1015 NA Amsterdam</p>
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-location-dot text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
+                                <div>
+                                    <p class="font-semibold text-warm-brown">Noordermarkt 45</p>
+                                    <p class="text-warm-gray font-light">1015 NA Amsterdam</p>
+                                </div>
                             </div>
-
                             <!-- Hours -->
-                            <div>
-                                <p class="text-sm text-warm-gray font-semibold uppercase tracking-wide mb-2" data-lang="nl">Openingsuren</p>
-                                <p class="text-sm text-warm-gray uppercase tracking-wide mb-2" data-lang="en">Hours</p>
-                                <p class="text-lg text-warm-brown" data-lang="nl">Ma-Za: 10:00 - 17:00</p>
-                                <p class="text-lg text-warm-brown" data-lang="en">Mon-Sat: 10:00 - 17:00</p>
-                                <p class="text-lg text-warm-brown" data-lang="nl">Zondag: Gesloten</p>
-                                <p class="text-lg text-warm-brown" data-lang="en">Sunday: Closed</p>
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-clock text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
+                                <div>
+                                    <p class="font-semibold text-warm-brown" data-lang="nl">Maandag t/m zaterdag</p>
+                                    <p class="font-semibold text-warm-brown" data-lang="en">Monday to Saturday</p>
+                                    <p class="text-warm-gray font-light">10:00 – 17:00</p>
+                                    <p class="text-warm-gray font-light" data-lang="nl">Zondag gesloten</p>
+                                    <p class="text-warm-gray font-light" data-lang="en">Closed on Sundays</p>
+                                </div>
                             </div>
-
                             <!-- Email -->
-                            <div>
-                                <p class="text-sm text-warm-gray font-semibold uppercase tracking-wide mb-2" data-lang="nl">Email</p>
-                                <p class="text-sm text-warm-gray uppercase tracking-wide mb-2" data-lang="en">Email</p>
-                                <a href="mailto:info@craftedstories.nl" class="text-lg text-primary hover:text-primary-dark transition font-semibold">
-                                    info@craftedstories.nl
-                                </a>
+                            <div class="flex items-start gap-4">
+                                <i class="fa-solid fa-envelope text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
+                                <div>
+                                    <a href="mailto:info@craftedstories.nl" class="text-primary hover:text-primary-dark transition font-semibold">
+                                        info@craftedstories.nl
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
