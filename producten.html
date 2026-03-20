@@ -7,7 +7,8 @@
     <title data-lang="en">Our Collection - Crafted Stories</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -241,9 +242,8 @@
                     <a href="contact.html" class="nav-link" data-lang="en">Contact</a>
                 </nav>
 
-                <button id="langToggle" class="ml-4 px-3 py-1 border border-warm-gray text-warm-gray text-sm font-semibold rounded hover:bg-cream transition">
-                    <span data-lang="nl">EN</span>
-                    <span data-lang="en">NL</span>
+                <button id="langToggle" class="lang-toggle-btn ml-4 flex items-center gap-1.5 px-3 py-1.5 border border-cream-dark text-warm-gray text-sm font-sans hover:bg-cream hover:text-primary transition" aria-label="Switch to English">
+                    <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
                 </button>
             </div>
         </div>
@@ -268,15 +268,19 @@
 
     <!-- Photo Banner -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 scroll-reveal">
-            <div class="image-grid md:col-span-2 md:row-span-2 h-96 md:h-full">
-                <img src="images/IMG-20260319-WA0002.jpg" alt="Crafted Stories shop overview" class="rounded">
+        <div class="flex flex-col md:flex-row gap-4 h-auto md:h-[520px] scroll-reveal">
+            <!-- Grote foto: volle hoogte links -->
+            <div class="md:flex-[2] h-64 md:h-full overflow-hidden">
+                <img src="images/IMG-20260319-WA0002.jpg" alt="Overzicht van de Crafted Stories winkel" class="w-full h-full object-cover rounded">
             </div>
-            <div class="image-grid h-48">
-                <img src="images/IMG-20260319-WA0009.jpg" alt="Shop counter area" class="rounded">
-            </div>
-            <div class="image-grid h-48">
-                <img src="images/IMG-20260319-WA0008.jpg" alt="Cushions and textiles" class="rounded">
+            <!-- Rechterkolom: twee gelijke foto's gestapeld -->
+            <div class="md:flex-1 flex flex-col gap-4">
+                <div class="flex-1 overflow-hidden min-h-0">
+                    <img src="images/IMG-20260319-WA0009.jpg" alt="Toonbank met kaarten en sfeerverlichting" class="w-full h-full object-cover rounded">
+                </div>
+                <div class="flex-1 overflow-hidden min-h-0">
+                    <img src="images/IMG-20260319-WA0008.jpg" alt="Kleurrijke kussens en textiel" class="w-full h-full object-cover rounded">
+                </div>
             </div>
         </div>
     </section>
@@ -449,7 +453,7 @@
                 <div>
                     <h4 class="font-serif font-bold mb-4" data-lang="nl">Deel van</h4>
                     <h4 class="font-serif font-bold mb-4" data-lang="en">Part of</h4>
-                    <p class="text-sm">Tot Heil des Volks<br>Scharlaken Koord</p>
+                    <p class="text-sm"><a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline opacity-80 hover:opacity-100 transition">Tot Heil des Volks</a><br><a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline opacity-80 hover:opacity-100 transition">Scharlaken Koord</a></p>
                 </div>
             </div>
             <div class="border-t border-cream-dark pt-8 text-center text-sm">
@@ -462,22 +466,37 @@
     <!-- Scripts -->
     <script>
         // Language toggle
-        const langToggle = document.getElementById('langToggle');
         const html = document.documentElement;
 
-        langToggle.addEventListener('click', () => {
-            if (html.lang === 'nl') {
-                html.lang = 'en';
-                localStorage.setItem('lang', 'en');
-            } else {
-                html.lang = 'nl';
-                localStorage.setItem('lang', 'nl');
-            }
-        });
+        function setLang(lang) {
+            html.lang = lang;
+            const isNL = lang === 'nl';
+            document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+                const flagEl = btn.querySelector('.lang-flag');
+                const codeEl = btn.querySelector('.lang-code');
+                if (flagEl) flagEl.textContent = isNL ? '🇬🇧' : '🇳🇱';
+                if (codeEl) codeEl.textContent = isNL ? 'EN' : 'NL';
+                btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
+            });
+            try { localStorage.setItem('cs-lang', lang); } catch(e) {}
+        }
 
-        // Load saved language preference
-        const savedLang = localStorage.getItem('lang') || 'nl';
-        html.lang = savedLang;
+        function detectLang() {
+            try {
+                const saved = localStorage.getItem('cs-lang');
+                if (saved === 'nl' || saved === 'en') return saved;
+            } catch(e) {}
+            const bl = (navigator.language || 'en').toLowerCase();
+            return bl.startsWith('nl') ? 'nl' : 'en';
+        }
+
+        setLang(detectLang());
+
+        document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLang(html.lang === 'nl' ? 'en' : 'nl');
+            });
+        });
 
         // Scroll reveal animation
         const observerOptions = {

@@ -217,19 +217,18 @@
                 <a href="index.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Home</a>
                 <a href="index.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Home</a>
 
-                <a href="collection.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Collectie</a>
-                <a href="collection.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Collection</a>
+                <a href="producten.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Collectie</a>
+                <a href="producten.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Collection</a>
 
-                <a href="story.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Ons Verhaal</a>
-                <a href="story.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Our Story</a>
+                <a href="over-ons.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Ons Verhaal</a>
+                <a href="over-ons.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Our Story</a>
 
                 <a href="contact.html" class="nav-link active text-primary" data-lang="nl">Contact</a>
                 <a href="contact.html" class="nav-link active text-primary" data-lang="en">Contact</a>
             </nav>
 
-            <button id="langToggle" class="px-4 py-2 rounded border border-cream-dark hover:bg-cream transition">
-                <span data-lang="nl">EN</span>
-                <span data-lang="en">NL</span>
+            <button id="langToggle" class="lang-toggle-btn flex items-center gap-1.5 px-3 py-1.5 border border-cream-dark text-warm-gray text-sm font-sans hover:bg-cream hover:text-primary transition" aria-label="Switch to English">
+                <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
             </button>
         </div>
     </header>
@@ -366,7 +365,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="rounded-lg overflow-hidden shadow-lg h-96">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.0476255999524!2d4.8841!3d52.3749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c608d5d5d5d5d5%3A0x1234567890abcdef!2sNoordermarkt%2045%2C%201015%20NA%20Amsterdam!5e0!3m2!1sen!2snl!4v1234567890"
+                    src="https://www.google.com/maps?q=Noordermarkt+45,+1015+NA+Amsterdam&output=embed"
                     width="100%"
                     height="100%"
                     style="border:0;"
@@ -513,10 +512,10 @@
                     <ul class="space-y-2 text-sm text-cream-dark">
                         <li><a href="index.html" class="hover:text-cream transition" data-lang="nl">Home</a></li>
                         <li><a href="index.html" class="hover:text-cream transition" data-lang="en">Home</a></li>
-                        <li><a href="collection.html" class="hover:text-cream transition" data-lang="nl">Collectie</a></li>
-                        <li><a href="collection.html" class="hover:text-cream transition" data-lang="en">Collection</a></li>
-                        <li><a href="story.html" class="hover:text-cream transition" data-lang="nl">Ons Verhaal</a></li>
-                        <li><a href="story.html" class="hover:text-cream transition" data-lang="en">Our Story</a></li>
+                        <li><a href="producten.html" class="hover:text-cream transition" data-lang="nl">Collectie</a></li>
+                        <li><a href="producten.html" class="hover:text-cream transition" data-lang="en">Collection</a></li>
+                        <li><a href="over-ons.html" class="hover:text-cream transition" data-lang="nl">Ons Verhaal</a></li>
+                        <li><a href="over-ons.html" class="hover:text-cream transition" data-lang="en">Our Story</a></li>
                     </ul>
                 </div>
 
@@ -532,10 +531,10 @@
 
             <div class="border-t border-primary-dark pt-8 text-center text-sm text-cream-dark">
                 <p data-lang="nl">
-                    Onderdeel van <strong>Tot Heil des Volks</strong> en <strong>Scharlaken Koord</strong>
+                    Onderdeel van <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Tot Heil des Volks</strong></a> en <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Scharlaken Koord</strong></a>
                 </p>
                 <p data-lang="en">
-                    Part of <strong>Tot Heil des Volks</strong> and <strong>Scharlaken Koord</strong>
+                    Part of <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Tot Heil des Volks</strong></a> and <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Scharlaken Koord</strong></a>
                 </p>
                 <p class="mt-4">© 2026 Crafted Stories. All rights reserved.</p>
             </div>
@@ -545,19 +544,37 @@
     <!-- Scripts -->
     <script>
         // Language Toggle
-        const langToggle = document.getElementById('langToggle');
         const html = document.documentElement;
 
-        langToggle.addEventListener('click', () => {
-            const currentLang = html.getAttribute('lang') || 'nl';
-            const newLang = currentLang === 'nl' ? 'en' : 'nl';
-            html.setAttribute('lang', newLang);
-            localStorage.setItem('craftedstories-lang', newLang);
-        });
+        function setLang(lang) {
+            html.setAttribute('lang', lang);
+            const isNL = lang === 'nl';
+            document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+                const flagEl = btn.querySelector('.lang-flag');
+                const codeEl = btn.querySelector('.lang-code');
+                if (flagEl) flagEl.textContent = isNL ? '🇬🇧' : '🇳🇱';
+                if (codeEl) codeEl.textContent = isNL ? 'EN' : 'NL';
+                btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
+            });
+            try { localStorage.setItem('cs-lang', lang); } catch(e) {}
+        }
 
-        // Restore language preference on load
-        const savedLang = localStorage.getItem('craftedstories-lang') || 'nl';
-        html.setAttribute('lang', savedLang);
+        function detectLang() {
+            try {
+                const saved = localStorage.getItem('cs-lang');
+                if (saved === 'nl' || saved === 'en') return saved;
+            } catch(e) {}
+            const bl = (navigator.language || 'en').toLowerCase();
+            return bl.startsWith('nl') ? 'nl' : 'en';
+        }
+
+        setLang(detectLang());
+
+        document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLang(html.getAttribute('lang') === 'nl' ? 'en' : 'nl');
+            });
+        });
 
         // Scroll Reveal
         const observerOptions = {

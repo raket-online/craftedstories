@@ -7,6 +7,7 @@
   <meta name="description" content="Het verhaal achter Crafted Stories. Een winkel in de Jordaan waar hoop, ambacht en nieuwe kansen samenkomen. Onderdeel van Tot Heil des Volks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -61,7 +62,7 @@
           <li><a href="over-ons.html" class="nav-link active text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Our Story</a></li>
           <li><a href="contact.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Contact</a></li>
         </ul>
-        <button id="lang-toggle" class="text-warm-gray hover:text-primary text-xs tracking-widest uppercase border border-cream-dark px-3 py-1 transition-colors font-sans" aria-label="Switch language">EN</button>
+        <button id="lang-toggle" class="lang-toggle-btn flex items-center gap-1.5 text-warm-gray hover:text-primary text-xs tracking-widest uppercase border border-cream-dark px-3 py-1.5 transition-colors font-sans" aria-label="Switch to English"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
       </div>
       <button id="mobile-toggle" class="md:hidden text-warm-brown p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -73,7 +74,7 @@
         <li><a href="producten.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
         <li><a href="over-ons.html" class="block py-3 px-2 text-primary text-sm tracking-widest uppercase border-b border-cream">Our Story</a></li>
         <li><a href="contact.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase">Contact</a></li>
-        <li><button id="lang-toggle-mobile" class="py-3 px-2 text-warm-gray text-sm tracking-widest uppercase font-sans">EN</button></li>
+        <li><button id="lang-toggle-mobile" class="lang-toggle-btn py-3 px-2 text-warm-gray text-sm tracking-widest uppercase font-sans flex items-center gap-1.5" aria-label="Switch to English"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button></li>
       </ul>
     </div>
   </header>
@@ -338,11 +339,18 @@
         <p class="text-warm-gray leading-relaxed font-light mb-6" data-lang="en">
           Crafted Stories is part of Tot Heil des Volks — an organisation that has been working with people in vulnerable situations in Amsterdam for over 170 years. Through Scharlaken Koord, we support those experiencing homelessness, addiction, sex work and children in poverty.
         </p>
-        <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="text-primary text-sm tracking-widest uppercase font-sans inline-flex items-center gap-2 hover:gap-4 transition-all">
-          <span data-lang="nl">Meer over Scharlaken Koord</span>
-          <span data-lang="en">More about Scharlaken Koord</span>
-          <span aria-hidden="true">→</span>
-        </a>
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="text-primary text-sm tracking-widest uppercase font-sans inline-flex items-center gap-2 hover:gap-4 transition-all">
+            <span data-lang="nl">Meer over Scharlaken Koord</span>
+            <span data-lang="en">More about Scharlaken Koord</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="text-primary text-sm tracking-widest uppercase font-sans inline-flex items-center gap-2 hover:gap-4 transition-all">
+            <span data-lang="nl">Meer over Tot Heil des Volks</span>
+            <span data-lang="en">More about Tot Heil des Volks</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -373,8 +381,8 @@
           <img src="logo.webp" alt="Crafted Stories" class="h-10 w-auto mb-4 brightness-0 invert opacity-90">
           <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="nl">Handgemaakte producten met een verhaal. Een plek van hoop, eerlijkheid en verbinding in het hart van Amsterdam.</p>
           <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="en">Handcrafted products with a story. A place of hope, honesty and connection in the heart of Amsterdam.</p>
-          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="nl">Crafted Stories is onderdeel van <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">Scharlaken Koord</a> / Tot Heil des Volks.</p>
-          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="en">Crafted Stories is part of <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">Scharlaken Koord</a> / Tot Heil des Volks.</p>
+          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="nl">Crafted Stories is onderdeel van <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">Scharlaken Koord</a> / <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">Tot Heil des Volks</a>.</p>
+          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="en">Crafted Stories is part of <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">Scharlaken Koord</a> / <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">Tot Heil des Volks</a>.</p>
         </div>
         <div>
           <h3 class="font-serif text-lg mb-4" data-lang="nl">Navigatie</h3><h3 class="font-serif text-lg mb-4" data-lang="en">Navigate</h3>
@@ -416,11 +424,26 @@
       }
       function setLang(lang) {
         document.documentElement.lang = lang;
-        document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(function (btn) { btn.textContent = lang === 'nl' ? 'EN' : 'NL'; });
+        var isNL = lang === 'nl';
+        document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
+          var flagEl = btn.querySelector('.lang-flag');
+          var codeEl = btn.querySelector('.lang-code');
+          if (flagEl) flagEl.textContent = isNL ? '🇬🇧' : '🇳🇱';
+          if (codeEl) codeEl.textContent = isNL ? 'EN' : 'NL';
+          btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
+        });
         try { localStorage.setItem('cs-lang', lang); } catch (e) {}
       }
-      try { if (localStorage.getItem('cs-lang') === 'en') setLang('en'); } catch (e) {}
-      document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(function (btn) {
+      function detectLang() {
+        try {
+          var saved = localStorage.getItem('cs-lang');
+          if (saved === 'nl' || saved === 'en') return saved;
+        } catch (e) {}
+        var bl = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        return bl.startsWith('nl') ? 'nl' : 'en';
+      }
+      setLang(detectLang());
+      document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
         btn.addEventListener('click', function () { setLang(document.documentElement.lang === 'nl' ? 'en' : 'nl'); });
       });
       var reveals = document.querySelectorAll('.scroll-reveal');
