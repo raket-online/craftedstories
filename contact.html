@@ -1,671 +1,563 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang="nl">Contact - Crafted Stories</title>
-    <title data-lang="en" style="display:none;">Contact - Crafted Stories</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Crafted Stories Amsterdam | Noordermarkt 45</title>
+  <meta name="description" content="Neem contact op met Crafted Stories. Bezoek ons op Noordermarkt 45, Amsterdam. Open maandag t/m zaterdag 10:00–17:00. Vrijwilligers en kleding donaties welkom.">
+  <link rel="canonical" href="https://www.craftedstories.nl/contact.html">
+  <link rel="alternate" hreflang="nl" href="https://www.craftedstories.nl/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.craftedstories.nl/contact.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#941a10',
+            'primary-dark': '#6d1209',
+            'primary-light': '#b82214',
+            cream: '#f0ebe0',
+            'cream-dark': '#e2d9c8',
+            'warm-brown': '#2c1810',
+            'warm-gray': '#6b5a52',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Lato', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: #941a10;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .hero-pattern {
+      background-color: #f0ebe0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23941a10' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .scroll-reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+    [data-lang="en"] { display: none; }
+    html[lang="en"] [data-lang="nl"] { display: none; }
+    html[lang="en"] [data-lang="en"] { display: revert; }
 
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    /* Form styles */
+    .form-input {
+      border: 1px solid #e2d9c8;
+      padding: 12px;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      width: 100%;
+      transition: border-color 0.3s ease;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: #941a10;
+      box-shadow: 0 0 0 3px rgba(148, 26, 16, 0.1);
+    }
+    .form-error {
+      color: #dc2626;
+      font-size: 14px;
+      margin-top: 4px;
+      display: none;
+    }
+    .form-error.show { display: block; }
+    .form-success {
+      background-color: rgba(34, 197, 94, 0.1);
+      border: 1px solid #22c55e;
+      color: #15803d;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .form-success.show { display: block; }
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#941a10',
-                        'primary-dark': '#6d1209',
-                        'primary-light': '#b82214',
-                        cream: '#f0ebe0',
-                        'cream-dark': '#e2d9c8',
-                        'warm-brown': '#2c1810',
-                        'warm-gray': '#6b5a52',
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
-                        sans: ['Lato', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Language Toggle */
-        [data-lang="en"] { display: none; }
-        html[lang="en"] [data-lang="nl"] { display: none; }
-        html[lang="en"] [data-lang="en"] { display: revert; }
-
-        /* Hero Pattern */
-        .hero-pattern {
-            background-image:
-                radial-gradient(circle at 20% 50%, rgba(148, 26, 16, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(148, 26, 16, 0.05) 0%, transparent 50%);
-        }
-
-        /* Nav Link Underline Animation */
-        .nav-link {
-            position: relative;
-            text-decoration: none;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #941a10;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        .nav-link.active {
-            font-weight: 700;
-        }
-
-        /* Scroll Reveal */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Form Styles */
-        .form-input {
-            border: 1px solid #e2d9c8;
-            border-radius: 4px;
-            padding: 12px;
-            font-family: 'Lato', sans-serif;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: #941a10;
-            box-shadow: 0 0 0 3px rgba(148, 26, 16, 0.1);
-        }
-        .form-input.error {
-            border-color: #dc2626;
-            background-color: rgba(220, 38, 38, 0.05);
-        }
-
-        .btn-submit {
-            background-color: #941a10;
-            color: white;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 4px;
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .btn-submit:hover:not(:disabled) {
-            background-color: #6d1209;
-        }
-        .btn-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .form-error {
-            color: #dc2626;
-            font-size: 14px;
-            margin-top: 4px;
-            display: none;
-        }
-        .form-error.show {
-            display: block;
-        }
-
-        .form-success {
-            background-color: rgba(34, 197, 94, 0.1);
-            border: 1px solid #22c55e;
-            color: #15803d;
-            padding: 16px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .form-success.show {
-            display: block;
-        }
-
-        /* Accordion */
-        .accordion-item {
-            border-bottom: 1px solid #e2d9c8;
-            overflow: hidden;
-        }
-        .accordion-header {
-            background-color: transparent;
-            border: none;
-            width: 100%;
-            padding: 20px 0;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 18px;
-            font-weight: 700;
-            color: #2c1810;
-            transition: color 0.3s ease;
-        }
-        .accordion-header:hover {
-            color: #941a10;
-        }
-        .accordion-toggle {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-        .accordion-item.open .accordion-toggle {
-            transform: rotate(180deg);
-        }
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: #6b5a52;
-            line-height: 1.7;
-        }
-        .accordion-item.open .accordion-content {
-            max-height: 500px;
-            padding-bottom: 20px;
-        }
-
-        /* CTA Button */
-        .btn-cta {
-            background-color: #941a10;
-            color: white;
-            padding: 18px 40px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        .btn-cta:hover {
-            background-color: #6d1209;
-        }
-    </style>
+    /* Accordion */
+    .accordion-item { border-bottom: 1px solid #e2d9c8; }
+    .accordion-header {
+      background: transparent;
+      border: none;
+      width: 100%;
+      padding: 20px 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.1rem;
+      color: #2c1810;
+      transition: color 0.3s ease;
+    }
+    .accordion-header:hover { color: #941a10; }
+    .accordion-toggle {
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .accordion-item.open .accordion-toggle { transform: rotate(180deg); }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #6b5a52;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .accordion-item.open .accordion-content {
+      max-height: 500px;
+      padding-bottom: 20px;
+    }
+  </style>
 </head>
-<body class="font-sans bg-white text-warm-brown">
-    <!-- Header & Navigation -->
-    <header class="border-b border-cream-dark sticky top-0 bg-white z-50">
-        <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
-            <a href="index.html" class="flex-shrink-0">
-                <img src="logo.webp" alt="Crafted Stories Logo" class="h-10">
+<body class="bg-white text-warm-brown">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-white px-4 py-2 rounded z-50">
+    <span data-lang="nl">Naar hoofdinhoud</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="bg-white border-b border-cream-dark sticky top-0 z-40" role="banner">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between" aria-label="Hoofdnavigatie">
+      <a href="index.html" aria-label="Crafted Stories – home">
+        <img src="logo.webp" alt="Crafted Stories" class="h-12 w-auto">
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <ul class="flex items-center gap-8 list-none" role="list">
+          <li><a href="index.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Home</a></li>
+          <li>
+            <a href="producten.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">
+              <span data-lang="nl">Collectie</span><span data-lang="en">Collection</span>
             </a>
+          </li>
+          <li><a href="over-ons.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Our Story</a></li>
+          <li><a href="contact.html" class="nav-link active text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Contact</a></li>
+        </ul>
+        <button id="lang-toggle" class="lang-toggle-btn flex items-center gap-1.5 text-warm-gray hover:text-primary text-xs tracking-widest uppercase border border-cream-dark px-3 py-1.5 transition-colors font-sans" aria-label="Switch to English">
+          <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+        </button>
+      </div>
 
-            <nav class="hidden md:flex gap-8">
-                <a href="index.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Home</a>
-                <a href="index.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Home</a>
+      <button id="mobile-toggle" class="md:hidden text-warm-brown p-2" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
 
-                <a href="producten.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Collectie</a>
-                <a href="producten.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Collection</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-cream-dark">
+      <ul class="flex flex-col py-4 px-4 gap-1 list-none">
+        <li><a href="index.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream">Home</a></li>
+        <li><a href="producten.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
+        <li><a href="over-ons.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream">Our Story</a></li>
+        <li><a href="contact.html" class="block py-3 px-2 text-primary text-sm tracking-widest uppercase border-b border-cream">Contact</a></li>
+        <li><button id="lang-toggle-mobile" class="lang-toggle-btn py-3 px-2 text-warm-gray text-sm tracking-widest uppercase font-sans flex items-center gap-1.5" aria-label="Switch to English"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button></li>
+      </ul>
+    </div>
+  </header>
 
-                <a href="over-ons.html" class="nav-link text-warm-brown hover:text-primary" data-lang="nl">Ons Verhaal</a>
-                <a href="over-ons.html" class="nav-link text-warm-brown hover:text-primary" data-lang="en">Our Story</a>
+  <!-- ========== MAIN ========== -->
+  <main id="main-content" role="main">
 
-                <a href="contact.html" class="nav-link active text-primary" data-lang="nl">Contact</a>
-                <a href="contact.html" class="nav-link active text-primary" data-lang="en">Contact</a>
-            </nav>
+    <!-- ===== HERO ===== -->
+    <section class="hero-pattern py-24" aria-labelledby="page-heading">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <p class="text-primary text-xs tracking-widest uppercase mb-4 font-sans">
+          <span data-lang="nl">Kom in contact</span>
+          <span data-lang="en">Get in touch</span>
+        </p>
+        <h1 id="page-heading" class="font-serif text-5xl md:text-6xl text-warm-brown mb-6">Contact</h1>
+        <div class="w-12 h-px bg-primary mx-auto mb-8"></div>
+        <p class="text-warm-gray text-xl leading-relaxed font-light max-w-2xl mx-auto" data-lang="nl">
+          We horen graag van je — of je nu wilt vrijwilligeren, kleding wil inbrengen, of gewoon meer wil weten.
+        </p>
+        <p class="text-warm-gray text-xl leading-relaxed font-light max-w-2xl mx-auto" data-lang="en">
+          We'd love to hear from you — whether you want to volunteer, donate clothing, or simply learn more.
+        </p>
+      </div>
+    </section>
 
-            <button id="langToggle" class="lang-toggle-btn flex items-center gap-1.5 px-3 py-1.5 border border-cream-dark text-warm-gray text-sm font-sans hover:bg-cream hover:text-primary transition" aria-label="Switch to English">
-                <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+    <!-- ===== FORMULIER + INFO ===== -->
+    <section class="py-20 md:py-28 bg-white" aria-labelledby="contact-heading">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-16 mb-20 scroll-reveal">
+
+          <!-- Contactformulier -->
+          <div>
+            <h2 id="contact-heading" class="font-serif text-3xl text-warm-brown mb-8">
+              <span data-lang="nl">Stuur ons een bericht</span>
+              <span data-lang="en">Send us a message</span>
+            </h2>
+
+            <form id="contactForm" novalidate>
+              <div class="form-success" id="formSuccess">
+                <span data-lang="nl">Bedankt! We nemen snel contact met je op.</span>
+                <span data-lang="en">Thank you! We'll get back to you soon.</span>
+              </div>
+
+              <div class="mb-6">
+                <label for="name" class="block text-warm-brown font-semibold mb-2 text-sm tracking-wide uppercase font-sans" data-lang="nl">Naam</label>
+                <label for="name" class="block text-warm-brown font-semibold mb-2 text-sm tracking-wide uppercase font-sans" data-lang="en">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+                <div class="form-error" id="nameError">
+                  <span data-lang="nl">Voer alstublieft uw naam in</span>
+                  <span data-lang="en">Please enter your name</span>
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block text-warm-brown font-semibold mb-2 text-sm tracking-wide uppercase font-sans">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+                <div class="form-error" id="emailError">
+                  <span data-lang="nl">Voer een geldig e-mailadres in</span>
+                  <span data-lang="en">Please enter a valid email address</span>
+                </div>
+              </div>
+
+              <div class="mb-8">
+                <label for="message" class="block text-warm-brown font-semibold mb-2 text-sm tracking-wide uppercase font-sans" data-lang="nl">Bericht</label>
+                <label for="message" class="block text-warm-brown font-semibold mb-2 text-sm tracking-wide uppercase font-sans" data-lang="en">Message</label>
+                <textarea id="message" name="message" rows="5" class="form-input resize-none" required></textarea>
+                <div class="form-error" id="messageError">
+                  <span data-lang="nl">Voer alstublieft een bericht in</span>
+                  <span data-lang="en">Please enter a message</span>
+                </div>
+              </div>
+
+              <button type="submit" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 text-sm tracking-widest uppercase transition-colors font-sans">
+                <span data-lang="nl">Verstuur</span>
+                <span data-lang="en">Send</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contactinfo + foto -->
+          <div>
+            <h2 class="font-serif text-3xl text-warm-brown mb-8">
+              <span data-lang="nl">Bezoek ons</span>
+              <span data-lang="en">Visit us</span>
+            </h2>
+
+            <div class="space-y-5 mb-10">
+              <div class="flex items-start gap-4">
+                <i class="fa-solid fa-location-dot text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
+                <div>
+                  <p class="font-semibold text-warm-brown">Noordermarkt 45</p>
+                  <p class="text-warm-gray font-light">1015 NA Amsterdam</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <i class="fa-solid fa-clock text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
+                <div>
+                  <p class="font-semibold text-warm-brown" data-lang="nl">Maandag t/m zaterdag</p>
+                  <p class="font-semibold text-warm-brown" data-lang="en">Monday to Saturday</p>
+                  <p class="text-warm-gray font-light">10:00 – 17:00</p>
+                  <p class="text-warm-gray font-light" data-lang="nl">Zondag gesloten</p>
+                  <p class="text-warm-gray font-light" data-lang="en">Closed on Sundays</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <i class="fa-solid fa-envelope text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
+                <div>
+                  <a href="mailto:info@craftedstories.nl" class="text-primary hover:text-primary-dark transition font-semibold">
+                    info@craftedstories.nl
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <img src="images/IMG-20260319-WA0006.jpg" alt="De gezellige koffiehoek van Crafted Stories met droogbloemen" class="w-full shadow-lg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KAART ===== -->
+    <section class="py-16 bg-cream" aria-label="Locatie kaart">
+      <div class="max-w-6xl mx-auto px-4 scroll-reveal">
+        <div class="overflow-hidden shadow-lg h-96">
+          <iframe
+            src="https://www.google.com/maps?q=Noordermarkt+45,+1015+NA+Amsterdam&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Crafted Stories locatie – Noordermarkt 45, Amsterdam"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="py-20 md:py-28 bg-white" aria-labelledby="faq-heading">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-14 scroll-reveal">
+          <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
+            <span data-lang="nl">Veelgestelde vragen</span>
+            <span data-lang="en">FAQ</span>
+          </p>
+          <h2 id="faq-heading" class="font-serif text-4xl text-warm-brown mb-4">
+            <span data-lang="nl">Jouw vragen, onze antwoorden</span>
+            <span data-lang="en">Your questions, our answers</span>
+          </h2>
+          <div class="w-12 h-px bg-primary mx-auto"></div>
+        </div>
+
+        <div class="accordion scroll-reveal">
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span data-lang="nl">Kan ik kleding inbrengen?</span>
+              <span data-lang="en">Can I donate clothing?</span>
+              <span class="accordion-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-down text-sm text-warm-gray"></i></span>
             </button>
-        </div>
-    </header>
+            <div class="accordion-content">
+              <p data-lang="nl">Ja, schone en up-to-date kleding. De opbrengst gaat naar sociale projecten van Tot Heil des Volks: ondersteuning voor daklozen, verslaafden, sekswerkers, en kinderen in armoede.</p>
+              <p data-lang="en">Yes, we accept clean and current clothing. All proceeds go towards Tot Heil des Volks' social projects: support for people experiencing homelessness, addiction, sex work and children in poverty.</p>
+            </div>
+          </div>
 
-    <!-- Hero Section -->
-    <section class="hero-pattern bg-cream py-20 md:py-28">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <h1 class="font-serif text-5xl md:text-6xl font-bold text-warm-brown mb-6">
-                <span data-lang="nl">Contact</span>
-                <span data-lang="en">Get in Touch</span>
-            </h1>
-            <p class="text-xl text-warm-gray max-w-2xl mx-auto" data-lang="nl">We craft stories, let them craft yours</p>
-            <p class="text-xl text-warm-gray max-w-2xl mx-auto" data-lang="en">We craft stories, let them craft yours</p>
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span data-lang="nl">Hoe word ik vrijwilliger?</span>
+              <span data-lang="en">How can I volunteer?</span>
+              <span class="accordion-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-down text-sm text-warm-gray"></i></span>
+            </button>
+            <div class="accordion-content">
+              <p data-lang="nl">We zoeken altijd vrijwilligers! Je kunt ons helpen in de winkel, naast de doelgroep staan, creatieve workshops geven, of op andere manieren bijdragen. Neem contact op voor meer informatie.</p>
+              <p data-lang="en">We're always looking for volunteers! You can help in the shop, work alongside our community, lead creative workshops, or contribute in other ways. Get in touch to learn more.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span data-lang="nl">Hoe ziet een dag als vrijwilliger eruit?</span>
+              <span data-lang="en">What does a volunteer day look like?</span>
+              <span class="accordion-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-down text-sm text-warm-gray"></i></span>
+            </button>
+            <div class="accordion-content">
+              <p data-lang="nl">Een typische dag begint om 9:45. We maken de winkel klaar, helpen klanten, zetten koffie, stallen producten uit, controleren kleding en sluiten om 17:00. Het is divers, gezellig en voelt zinvol!</p>
+              <p data-lang="en">A typical day starts at 9:45. We prepare the shop, help customers, make coffee, display products, check clothing, and close at 5 PM. It's diverse, welcoming and deeply meaningful.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span data-lang="nl">Ik ben leverancier, kan ik producten aanbieden?</span>
+              <span data-lang="en">I'm a supplier, can I offer products?</span>
+              <span class="accordion-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-down text-sm text-warm-gray"></i></span>
+            </button>
+            <div class="accordion-content">
+              <p data-lang="nl">Ja, neem contact op! We kijken of het product past bij het verhaal en de sfeer van de winkel. We werken graag samen met lokale makers en ondernemers.</p>
+              <p data-lang="en">Yes, please reach out! We'll consider how your product aligns with our story and shop vibe. We love collaborating with local makers and entrepreneurs.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span data-lang="nl">Werken jullie samen met andere organisaties?</span>
+              <span data-lang="en">Do you collaborate with other organisations?</span>
+              <span class="accordion-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-down text-sm text-warm-gray"></i></span>
+            </button>
+            <div class="accordion-content">
+              <p data-lang="nl">Ja! We zijn onderdeel van <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="text-primary underline">Scharlaken Koord</a> en <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="text-primary underline">Tot Heil des Volks</a>. Bezoek hun websites voor meer informatie.</p>
+              <p data-lang="en">Yes! We're part of <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="text-primary underline">Scharlaken Koord</a> and <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="text-primary underline">Tot Heil des Volks</a>. Visit their websites to learn more about our network and impact.</p>
+            </div>
+          </div>
+
         </div>
+      </div>
     </section>
 
-    <!-- Contact Section: Form + Info -->
-    <section class="py-20 md:py-28">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 mb-20 scroll-reveal">
-
-                <!-- Contact Form -->
-                <div>
-                    <h2 class="font-serif text-3xl font-bold text-warm-brown mb-8" data-lang="nl">Stuur ons een bericht</h2>
-                    <h2 class="font-serif text-3xl font-bold text-warm-brown mb-8" data-lang="en">Send us a message</h2>
-
-                    <form id="contactForm" novalidate>
-                        <div class="form-success" id="formSuccess">
-                            <span data-lang="nl">Bedankt! We nemen snel contact met je op.</span>
-                            <span data-lang="en">Thank you! We'll get back to you soon.</span>
-                        </div>
-
-                        <!-- Name Field -->
-                        <div class="mb-6">
-                            <label for="name" class="block text-warm-brown font-semibold mb-2" data-lang="nl">Naam</label>
-                            <label for="name" class="block text-warm-brown font-semibold mb-2" data-lang="en">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                class="form-input w-full"
-                                required
-                                aria-label="Your name"
-                            >
-                            <div class="form-error" id="nameError" data-lang="nl">Voer alstublieft uw naam in</div>
-                            <div class="form-error" id="nameError" data-lang="en">Please enter your name</div>
-                        </div>
-
-                        <!-- Email Field -->
-                        <div class="mb-6">
-                            <label for="email" class="block text-warm-brown font-semibold mb-2" data-lang="nl">Email</label>
-                            <label for="email" class="block text-warm-brown font-semibold mb-2" data-lang="en">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                class="form-input w-full"
-                                required
-                                aria-label="Your email address"
-                            >
-                            <div class="form-error" id="emailError" data-lang="nl">Voer alstublieft een geldig email adres in</div>
-                            <div class="form-error" id="emailError" data-lang="en">Please enter a valid email address</div>
-                        </div>
-
-                        <!-- Message Field -->
-                        <div class="mb-8">
-                            <label for="message" class="block text-warm-brown font-semibold mb-2" data-lang="nl">Bericht</label>
-                            <label for="message" class="block text-warm-brown font-semibold mb-2" data-lang="en">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                class="form-input w-full resize-none"
-                                required
-                                aria-label="Your message"
-                            ></textarea>
-                            <div class="form-error" id="messageError" data-lang="nl">Voer alstublieft een bericht in</div>
-                            <div class="form-error" id="messageError" data-lang="en">Please enter a message</div>
-                        </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn-submit w-full md:w-auto" data-lang="nl">Verstuur</button>
-                        <button type="submit" class="btn-submit w-full md:w-auto" data-lang="en">Send</button>
-                    </form>
-                </div>
-
-                <!-- Contact Info + Image -->
-                <div>
-                    <div class="mb-12">
-                        <h3 class="font-serif text-2xl font-bold text-warm-brown mb-6" data-lang="nl">Bezoek ons</h3>
-                        <h3 class="font-serif text-2xl font-bold text-warm-brown mb-6" data-lang="en">Visit us</h3>
-
-                        <div class="space-y-5">
-                            <!-- Address -->
-                            <div class="flex items-start gap-4">
-                                <i class="fa-solid fa-location-dot text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
-                                <div>
-                                    <p class="font-semibold text-warm-brown">Noordermarkt 45</p>
-                                    <p class="text-warm-gray font-light">1015 NA Amsterdam</p>
-                                </div>
-                            </div>
-                            <!-- Hours -->
-                            <div class="flex items-start gap-4">
-                                <i class="fa-solid fa-clock text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
-                                <div>
-                                    <p class="font-semibold text-warm-brown" data-lang="nl">Maandag t/m zaterdag</p>
-                                    <p class="font-semibold text-warm-brown" data-lang="en">Monday to Saturday</p>
-                                    <p class="text-warm-gray font-light">10:00 – 17:00</p>
-                                    <p class="text-warm-gray font-light" data-lang="nl">Zondag gesloten</p>
-                                    <p class="text-warm-gray font-light" data-lang="en">Closed on Sundays</p>
-                                </div>
-                            </div>
-                            <!-- Email -->
-                            <div class="flex items-start gap-4">
-                                <i class="fa-solid fa-envelope text-primary text-lg mt-1 w-5 text-center" aria-hidden="true"></i>
-                                <div>
-                                    <a href="mailto:info@craftedstories.nl" class="text-primary hover:text-primary-dark transition font-semibold">
-                                        info@craftedstories.nl
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Shop Image -->
-                    <img src="images/IMG-20260319-WA0006.jpg" alt="Cozy coffee corner with dried flowers at Crafted Stories" class="w-full rounded-lg shadow-lg">
-                </div>
-            </div>
+    <!-- ===== CTA ===== -->
+    <section class="py-20 bg-primary text-white" aria-label="Call to action">
+      <div class="max-w-4xl mx-auto px-4 text-center scroll-reveal">
+        <blockquote>
+          <p class="font-serif text-3xl md:text-4xl italic leading-relaxed mb-8">"We craft stories. Let them craft yours."</p>
+        </blockquote>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#contactForm" class="bg-white text-primary hover:bg-cream px-10 py-3 text-sm tracking-widest uppercase transition-colors font-sans">
+            <span data-lang="nl">Stuur een bericht</span>
+            <span data-lang="en">Send a message</span>
+          </a>
+          <a href="over-ons.html" class="border border-white text-white hover:bg-white hover:text-primary px-10 py-3 text-sm tracking-widest uppercase transition-colors font-sans">
+            <span data-lang="nl">Ons verhaal</span>
+            <span data-lang="en">Our story</span>
+          </a>
         </div>
+      </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="py-16 bg-cream-dark scroll-reveal">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="rounded-lg overflow-hidden shadow-lg h-96">
-                <iframe
-                    src="https://www.google.com/maps?q=Noordermarkt+45,+1015+NA+Amsterdam&output=embed"
-                    width="100%"
-                    height="100%"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Crafted Stories location map"
-                ></iframe>
-            </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-warm-brown text-white py-16" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="md:col-span-2">
+          <img src="logo.webp" alt="Crafted Stories" class="h-10 w-auto mb-4 brightness-0 invert opacity-90">
+          <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="nl">
+            Handgemaakte producten met een verhaal. Een plek van hoop, eerlijkheid en verbinding in het hart van Amsterdam.
+          </p>
+          <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="en">
+            Handcrafted products with a story. A place of hope, honesty and connection in the heart of Amsterdam.
+          </p>
+          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="nl">
+            Crafted Stories is onderdeel van <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">Scharlaken Koord</a> / <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">Tot Heil des Volks</a>.
+          </p>
+          <p class="text-white opacity-40 text-xs mt-4 font-light" data-lang="en">
+            Crafted Stories is part of <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">Scharlaken Koord</a> / <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">Tot Heil des Volks</a>.
+          </p>
         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-20 md:py-28 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="font-serif text-4xl font-bold text-warm-brown text-center mb-12 scroll-reveal" data-lang="nl">Veelgestelde vragen</h2>
-            <h2 class="font-serif text-4xl font-bold text-warm-brown text-center mb-12 scroll-reveal" data-lang="en">Frequently Asked Questions</h2>
-
-            <div class="accordion scroll-reveal">
-                <!-- FAQ Item 1 -->
-                <div class="accordion-item">
-                    <button class="accordion-header" aria-expanded="false">
-                        <span data-lang="nl">Kan ik kleding inbrengen?</span>
-                        <span data-lang="en">Can I donate clothing?</span>
-                        <span class="accordion-toggle">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-lang="nl">
-                            Ja, schone en up-to-date kleding. De opbrengst gaat naar sociale projecten van Tot Heil des Volks: ondersteuning voor daklozen, verslaafden, sekswerkers, en kinderen in armoede.
-                        </p>
-                        <p data-lang="en">
-                            Yes, we accept clean and current clothing. All proceeds go towards Tot Heil des Volks' social projects: support for homeless people, people struggling with addiction, sex workers, and children in poverty.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="accordion-item">
-                    <button class="accordion-header" aria-expanded="false">
-                        <span data-lang="nl">Hoe word ik vrijwilliger?</span>
-                        <span data-lang="en">How can I volunteer?</span>
-                        <span class="accordion-toggle">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-lang="nl">
-                            We zoeken altijd vrijwilligers! Je kunt ons helpen in de winkel, naast de doelgroep staan, creatieve workshops geven, of op andere manieren bijdragen. Neem contact op voor meer informatie over mogelijkheden.
-                        </p>
-                        <p data-lang="en">
-                            We're always looking for volunteers! You can help in the shop, work directly with our target community, lead creative workshops, or contribute in other ways. Get in touch to learn more about opportunities.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="accordion-item">
-                    <button class="accordion-header" aria-expanded="false">
-                        <span data-lang="nl">Hoe ziet een dag als vrijwilliger eruit?</span>
-                        <span data-lang="en">What does a volunteer day look like?</span>
-                        <span class="accordion-toggle">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-lang="nl">
-                            Een typische dag begint om 9:45. We maken de winkel klaar, helpen klanten, zetten koffie, stallen producten uit, controleren kleding, en sluiten om 17:00. Het is divers, gezellig, en voelt zinvol!
-                        </p>
-                        <p data-lang="en">
-                            A typical day starts at 9:45. We prepare the shop, help customers, make coffee, display products, check clothing, and close at 5 PM. It's diverse, welcoming, and deeply meaningful.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="accordion-item">
-                    <button class="accordion-header" aria-expanded="false">
-                        <span data-lang="nl">Ik ben leverancier, kan ik producten aanbieden?</span>
-                        <span data-lang="en">I'm a supplier, can I offer products?</span>
-                        <span class="accordion-toggle">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-lang="nl">
-                            Ja, neem contact op! We kijken of het product past bij het verhaal en de sfeer van de winkel. We werken graag met lokale makers en ondernemers.
-                        </p>
-                        <p data-lang="en">
-                            Yes, please reach out! We'll consider how your product aligns with our story and shop vibe. We love collaborating with local makers and entrepreneurs.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="accordion-item">
-                    <button class="accordion-header" aria-expanded="false">
-                        <span data-lang="nl">Werken jullie samen met andere organisaties?</span>
-                        <span data-lang="en">Do you collaborate with other organisations?</span>
-                        <span class="accordion-toggle">▼</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p data-lang="nl">
-                            Ja! We zijn onderdeel van Scharlaken Koord en Tot Heil des Volks. Bezoek hun website voor meer informatie over ons netwerk en impact.
-                        </p>
-                        <p data-lang="en">
-                            Yes! We're part of Scharlaken Koord and Tot Heil des Volks. Visit their website to learn more about our network and impact.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div>
+          <h3 class="font-serif text-lg mb-4" data-lang="nl">Navigatie</h3>
+          <h3 class="font-serif text-lg mb-4" data-lang="en">Navigate</h3>
+          <ul class="space-y-2 list-none">
+            <li><a href="index.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans">Home</a></li>
+            <li><a href="producten.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
+            <li><a href="over-ons.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans">Our Story</a></li>
+            <li><a href="contact.html" class="text-white opacity-60 hover:opacity-100 text-sm transition-opacity font-sans">Contact</a></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="hero-pattern bg-cream py-20 md:py-28">
-        <div class="max-w-4xl mx-auto px-4 text-center scroll-reveal">
-            <h2 class="font-serif text-4xl font-bold text-warm-brown mb-6" data-lang="nl">Ben je klaar om je verhaal met ons te delen?</h2>
-            <h2 class="font-serif text-4xl font-bold text-warm-brown mb-6" data-lang="en">Ready to share your story with us?</h2>
-
-            <p class="text-lg text-warm-gray mb-8 max-w-2xl mx-auto" data-lang="nl">
-                Stuur ons een bericht, kom langs, of word onderdeel van ons community.
-            </p>
-            <p class="text-lg text-warm-gray mb-8 max-w-2xl mx-auto" data-lang="en">
-                Send us a message, visit us, or become part of our community.
-            </p>
-
-            <a href="#contactForm" class="btn-cta" data-lang="nl">Contacteer ons</a>
-            <a href="#contactForm" class="btn-cta" data-lang="en">Get in touch</a>
+        <div>
+          <h3 class="font-serif text-lg mb-4" data-lang="nl">Bezoek ons</h3>
+          <h3 class="font-serif text-lg mb-4" data-lang="en">Visit us</h3>
+          <address class="not-italic text-white opacity-60 text-sm space-y-2 font-light font-sans">
+            <p>Noordermarkt 45</p>
+            <p>1015 NA Amsterdam</p>
+            <p data-lang="nl">Ma–Za: 10:00–17:00</p>
+            <p data-lang="en">Mon–Sat: 10:00–17:00</p>
+            <p><a href="mailto:info@craftedstories.nl" class="hover:opacity-100 transition-opacity">info@craftedstories.nl</a></p>
+          </address>
         </div>
-    </section>
+      </div>
+      <div class="border-t border-white border-opacity-10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-white opacity-40 text-xs font-sans">
+        <p>&copy; 2026 Crafted Stories. <span data-lang="nl">Alle rechten voorbehouden.</span><span data-lang="en">All rights reserved.</span></p>
+        <p>Noordermarkt 45, Amsterdam</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-warm-brown text-cream py-12 border-t border-primary">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h3 class="font-serif text-lg font-bold mb-4" data-lang="nl">Crafted Stories</h3>
-                    <h3 class="font-serif text-lg font-bold mb-4" data-lang="en">Crafted Stories</h3>
-                    <p class="text-cream-dark text-sm" data-lang="nl">
-                        Een sociale onderneming in Amsterdam Jordaan, onderdeel van Scharlaken Koord en Tot Heil des Volks.
-                    </p>
-                    <p class="text-cream-dark text-sm" data-lang="en">
-                        A social enterprise in Amsterdam's Jordaan, part of Scharlaken Koord and Tot Heil des Volks.
-                    </p>
-                </div>
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    (function () {
+      'use strict';
 
-                <div>
-                    <h4 class="font-semibold mb-4" data-lang="nl">Snel links</h4>
-                    <h4 class="font-semibold mb-4" data-lang="en">Quick links</h4>
-                    <ul class="space-y-2 text-sm text-cream-dark">
-                        <li><a href="index.html" class="hover:text-cream transition" data-lang="nl">Home</a></li>
-                        <li><a href="index.html" class="hover:text-cream transition" data-lang="en">Home</a></li>
-                        <li><a href="producten.html" class="hover:text-cream transition" data-lang="nl">Collectie</a></li>
-                        <li><a href="producten.html" class="hover:text-cream transition" data-lang="en">Collection</a></li>
-                        <li><a href="over-ons.html" class="hover:text-cream transition" data-lang="nl">Ons Verhaal</a></li>
-                        <li><a href="over-ons.html" class="hover:text-cream transition" data-lang="en">Our Story</a></li>
-                    </ul>
-                </div>
+      // Mobile menu
+      var toggle = document.getElementById('mobile-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          var isOpen = menu.classList.toggle('hidden') === false;
+          this.setAttribute('aria-expanded', String(isOpen));
+          this.setAttribute('aria-label', isOpen ? 'Menu sluiten' : 'Menu openen');
+        });
+      }
 
-                <div>
-                    <h4 class="font-semibold mb-4" data-lang="nl">Info</h4>
-                    <h4 class="font-semibold mb-4" data-lang="en">Info</h4>
-                    <p class="text-cream-dark text-sm mb-3">Noordermarkt 45<br>1015 NA Amsterdam</p>
-                    <a href="mailto:info@craftedstories.nl" class="text-cream hover:text-primary-light transition text-sm">
-                        info@craftedstories.nl
-                    </a>
-                </div>
-            </div>
+      // Language toggle
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        var isNL = lang === 'nl';
+        document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
+          var flagEl = btn.querySelector('.lang-flag');
+          var codeEl = btn.querySelector('.lang-code');
+          if (flagEl) flagEl.textContent = isNL ? '🇬🇧' : '🇳🇱';
+          if (codeEl) codeEl.textContent = isNL ? 'EN' : 'NL';
+          btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
+        });
+        try { localStorage.setItem('cs-lang', lang); } catch (e) {}
+      }
 
-            <div class="border-t border-primary-dark pt-8 text-center text-sm text-cream-dark">
-                <p data-lang="nl">
-                    Onderdeel van <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Tot Heil des Volks</strong></a> en <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Scharlaken Koord</strong></a>
-                </p>
-                <p data-lang="en">
-                    Part of <a href="https://www.thdv.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Tot Heil des Volks</strong></a> and <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition"><strong>Scharlaken Koord</strong></a>
-                </p>
-                <p class="mt-4">© 2026 Crafted Stories. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+      function detectLang() {
+        try {
+          var saved = localStorage.getItem('cs-lang');
+          if (saved === 'nl' || saved === 'en') return saved;
+        } catch (e) {}
+        var bl = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        return bl.startsWith('nl') ? 'nl' : 'en';
+      }
 
-    <!-- Scripts -->
-    <script>
-        // Language Toggle
-        const html = document.documentElement;
+      setLang(detectLang());
 
-        function setLang(lang) {
-            html.setAttribute('lang', lang);
-            const isNL = lang === 'nl';
-            document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
-                const flagEl = btn.querySelector('.lang-flag');
-                const codeEl = btn.querySelector('.lang-code');
-                if (flagEl) flagEl.textContent = isNL ? '🇬🇧' : '🇳🇱';
-                if (codeEl) codeEl.textContent = isNL ? 'EN' : 'NL';
-                btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
-            });
-            try { localStorage.setItem('cs-lang', lang); } catch(e) {}
+      document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(document.documentElement.lang === 'nl' ? 'en' : 'nl');
+        });
+      });
+
+      // Scroll reveal
+      var reveals = document.querySelectorAll('.scroll-reveal');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      reveals.forEach(function (el) { observer.observe(el); });
+
+      // Form
+      var form = document.getElementById('contactForm');
+      var formSuccess = document.getElementById('formSuccess');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.querySelectorAll('.form-error').forEach(function (el) { el.classList.remove('show'); });
+        formSuccess.classList.remove('show');
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var message = document.getElementById('message').value.trim();
+        var valid = true;
+        if (!name) { document.getElementById('nameError').classList.add('show'); valid = false; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('emailError').classList.add('show'); valid = false; }
+        if (!message) { document.getElementById('messageError').classList.add('show'); valid = false; }
+        if (valid) {
+          formSuccess.classList.add('show');
+          form.reset();
+          setTimeout(function () { formSuccess.classList.remove('show'); }, 5000);
         }
+      });
 
-        function detectLang() {
-            try {
-                const saved = localStorage.getItem('cs-lang');
-                if (saved === 'nl' || saved === 'en') return saved;
-            } catch(e) {}
-            const bl = (navigator.language || 'en').toLowerCase();
-            return bl.startsWith('nl') ? 'nl' : 'en';
-        }
-
-        setLang(detectLang());
-
-        document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLang(html.getAttribute('lang') === 'nl' ? 'en' : 'nl');
-            });
+      // Accordion
+      document.querySelectorAll('.accordion-header').forEach(function (header) {
+        header.addEventListener('click', function () {
+          var item = header.parentElement;
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.accordion-item').forEach(function (el) {
+            el.classList.remove('open');
+            el.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            header.setAttribute('aria-expanded', 'true');
+          }
         });
+      });
 
-        // Scroll Reveal
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+    })();
+  </script>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Form Validation & Submission
-        const form = document.getElementById('contactForm');
-        const formSuccess = document.getElementById('formSuccess');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Clear previous errors and success
-            document.querySelectorAll('.form-error').forEach(el => el.classList.remove('show'));
-            formSuccess.classList.remove('show');
-
-            // Validate fields
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            let isValid = true;
-
-            if (!name) {
-                document.getElementById('nameError').classList.add('show');
-                isValid = false;
-            }
-
-            if (!email || !isValidEmail(email)) {
-                document.getElementById('emailError').classList.add('show');
-                isValid = false;
-            }
-
-            if (!message) {
-                document.getElementById('messageError').classList.add('show');
-                isValid = false;
-            }
-
-            if (isValid) {
-                // In production, this would send to a server
-                // For now, show success message and reset form
-                formSuccess.classList.add('show');
-                form.reset();
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    formSuccess.classList.remove('show');
-                }, 5000);
-            }
-        });
-
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // Accordion
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const isOpen = item.classList.contains('open');
-
-                // Close all other items
-                document.querySelectorAll('.accordion-item').forEach(el => {
-                    el.classList.remove('open');
-                    el.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-                });
-
-                // Toggle current item
-                if (!isOpen) {
-                    item.classList.add('open');
-                    header.setAttribute('aria-expanded', 'true');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
