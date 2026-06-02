@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#941a10"/>
-  <text x="16" y="23" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f0ebe0" text-anchor="middle" letter-spacing="0.5">CS</text>
+  <!-- Filled circle echoing the round logo emblem -->
+  <circle cx="16" cy="16" r="15.5" fill="#941a10"/>
+  <!-- CS monogram in cream, serif font matching site headings -->
+  <text x="16" y="22" text-anchor="middle" fill="#f0ebe0"
+        font-family="Lato, 'Helvetica Neue', Arial, sans-serif"
+        font-size="15" font-weight="700" letter-spacing="1">CS</text>
 </svg>

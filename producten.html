@@ -95,8 +95,11 @@
   <!-- ========== HEADER ========== -->
   <header class="bg-white border-b border-cream-dark sticky top-0 z-40" role="banner">
     <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between" aria-label="Hoofdnavigatie">
-      <a href="index.html" aria-label="Crafted Stories – home">
-        <img src="logo.webp" alt="Crafted Stories" class="h-12 w-auto">
+      <a href="index.html" class="flex items-center gap-3" aria-label="Crafted Stories – home">
+        <img src="logo.webp" alt="" aria-hidden="true" class="h-11 w-auto">
+        <span class="font-sans text-xl sm:text-2xl uppercase leading-none tracking-[0.12em]">
+          <span class="text-warm-brown font-light">Crafted</span><span class="text-primary font-bold">Stories</span>
+        </span>
       </a>
 
       <div class="hidden md:flex items-center gap-8">
@@ -111,7 +114,7 @@
           <li><a href="contact.html" class="nav-link text-warm-brown hover:text-primary transition-colors text-sm tracking-widest uppercase font-sans">Contact</a></li>
         </ul>
         <button id="lang-toggle" class="lang-toggle-btn flex items-center gap-1.5 text-warm-gray hover:text-primary text-xs tracking-widest uppercase border border-cream-dark px-3 py-1.5 transition-colors font-sans" aria-label="Switch to English">
-          <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+          <span class="lang-flag"></span><span class="lang-code">EN</span>
         </button>
       </div>
 
@@ -128,7 +131,7 @@
         <li><a href="producten.html" class="block py-3 px-2 text-primary text-sm tracking-widest uppercase border-b border-cream"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
         <li><a href="over-ons.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream">Our Story</a></li>
         <li><a href="contact.html" class="block py-3 px-2 text-warm-brown hover:text-primary text-sm tracking-widest uppercase border-b border-cream">Contact</a></li>
-        <li><button id="lang-toggle-mobile" class="lang-toggle-btn py-3 px-2 text-warm-gray text-sm tracking-widest uppercase font-sans flex items-center gap-1.5" aria-label="Switch to English"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button></li>
+        <li><button id="lang-toggle-mobile" class="lang-toggle-btn py-3 px-2 text-warm-gray text-sm tracking-widest uppercase font-sans flex items-center gap-1.5" aria-label="Switch to English"><span class="lang-flag"></span><span class="lang-code">EN</span></button></li>
       </ul>
     </div>
   </header>
@@ -284,6 +287,79 @@
 
     </section>
 
+    <!-- ===== MERKEN / LEVERANCIERS ===== -->
+    <section class="py-24 hero-pattern" aria-labelledby="brands-heading">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16 scroll-reveal">
+          <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
+            <span data-lang="nl">Onze makers &amp; merken</span>
+            <span data-lang="en">Our makers &amp; brands</span>
+          </p>
+          <h2 id="brands-heading" class="font-serif text-4xl text-warm-brown mb-4">
+            <span data-lang="nl">De handen achter onze producten</span>
+            <span data-lang="en">The hands behind our products</span>
+          </h2>
+          <div class="w-12 h-px bg-primary mx-auto mb-6"></div>
+          <p class="text-warm-gray leading-relaxed font-light max-w-2xl mx-auto" data-lang="nl">
+            We werken samen met sociale ondernemingen, eerlijke merken en lokale makers. Elk product in onze winkel komt ergens vandaan — met een verhaal.
+          </p>
+          <p class="text-warm-gray leading-relaxed font-light max-w-2xl mx-auto" data-lang="en">
+            We work together with social enterprises, fair brands and local makers. Every product in our shop comes from somewhere — with a story.
+          </p>
+        </div>
+
+        <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 list-none scroll-reveal" role="list">
+          <li>
+            <a href="https://sjaalmetverhaal.nl" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Sjaal met Verhaal – opent in nieuw tabblad">
+              <img src="images/logos/sjaalmetverhaal.png" alt="Sjaal met Verhaal" loading="lazy" class="max-h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.imbarro.nl" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Imbarro – opent in nieuw tabblad">
+              <img src="images/logos/imbarro.png" alt="Imbarro" loading="lazy" style="filter: invert(1);" class="max-h-10 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://the-clothed.nl" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Clothed – opent in nieuw tabblad">
+              <img src="images/logos/clothed.png" alt="Clothed" loading="lazy" style="filter: brightness(0);" class="max-h-16 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.coffeelovers.nl" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Coffeelovers – opent in nieuw tabblad">
+              <img src="images/logos/coffeelovers.png" alt="Coffeelovers" loading="lazy" style="filter: invert(1);" class="max-h-9 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://dekoekfabriek.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="De Koekfabriek – opent in nieuw tabblad">
+              <img src="images/logos/koekfabriek.png" alt="De Koekfabriek" loading="lazy" class="max-h-16 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://sagstromandco.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Sagstrom &amp; Co – opent in nieuw tabblad">
+              <img src="images/logos/sagstrom.png" alt="Sagstrom &amp; Co" loading="lazy" class="max-h-7 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/ateliernaturelle_osdorp/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Atelier Naturelle – opent in nieuw tabblad">
+              <img src="images/logos/atelier-naturelle.jpg" alt="Atelier Naturelle" loading="lazy" class="max-h-16 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+          <li>
+            <a href="https://vangoghinamsterdam.com" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-center bg-white border border-cream rounded p-6 h-28 transition-shadow hover:shadow-md" aria-label="Van Gogh &amp; Rembrandt in Amsterdam – opent in nieuw tabblad">
+              <img src="images/logos/vmr.png" alt="Van Gogh &amp; Rembrandt in Amsterdam" loading="lazy" style="filter: brightness(0);" class="max-h-12 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity">
+            </a>
+          </li>
+        </ul>
+
+        <p class="text-center text-warm-gray font-light mt-10 scroll-reveal" data-lang="nl">
+          Daarnaast geven we tweedehands kleding, spullen en sieraden een tweede leven.
+        </p>
+        <p class="text-center text-warm-gray font-light mt-10 scroll-reveal" data-lang="en">
+          We also give secondhand clothing, goods and jewellery a second life.
+        </p>
+      </div>
+    </section>
+
     <!-- ===== KLEDING INBRENGEN ===== -->
     <section class="py-16 hero-pattern" aria-labelledby="donation-heading">
       <div class="max-w-3xl mx-auto px-4 scroll-reveal">
@@ -359,7 +435,7 @@
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-4 gap-12 mb-12">
         <div class="md:col-span-2">
-          <img src="logo.webp" alt="Crafted Stories" class="h-10 w-auto mb-4 brightness-0 invert opacity-90">
+          <img src="logo.webp" alt="Crafted Stories" class="h-16 w-auto mb-4 brightness-0 invert opacity-90">
           <p class="text-white opacity-60 text-sm leading-relaxed font-light max-w-sm" data-lang="nl">
             Handgemaakte producten met een verhaal. Een plek van hoop, eerlijkheid en verbinding in het hart van Amsterdam.
           </p>
@@ -407,6 +483,9 @@
     (function () {
       'use strict';
 
+      var FLAG_NL = '<svg viewBox="0 0 20 14" class="h-3.5 w-auto rounded-sm ring-1 ring-black/10" aria-hidden="true"><rect width="20" height="14" fill="#fff"/><rect width="20" height="4.667" fill="#AE1C28"/><rect y="9.333" width="20" height="4.667" fill="#21468B"/></svg>';
+      var FLAG_GB = '<svg viewBox="0 0 60 30" class="h-3.5 w-auto rounded-sm ring-1 ring-black/10" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2.5"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>';
+
       // Mobile menu
       var toggle = document.getElementById('mobile-toggle');
       var menu = document.getElementById('mobile-menu');
@@ -425,7 +504,7 @@
         document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
           var flagEl = btn.querySelector('.lang-flag');
           var codeEl = btn.querySelector('.lang-code');
-          if (flagEl) flagEl.textContent = isNL ? '🇬🇧' : '🇳🇱';
+          if (flagEl) flagEl.innerHTML = isNL ? FLAG_GB : FLAG_NL;
           if (codeEl) codeEl.textContent = isNL ? 'EN' : 'NL';
           btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
         });

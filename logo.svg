@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <!-- Top arc: clockwise over the top, baseline just inside the circle border -->
+    <path id="topArc"    d="M 20,150 A 130,130 0 0,1 280,150" fill="none"/>
+    <!-- Bottom arc: counterclockwise under the bottom, baseline just inside the circle border -->
+    <path id="bottomArc" d="M 20,150 A 130,130 0 0,0 280,150" fill="none"/>
+  </defs>
+
+  <!-- Outer circle border -->
+  <circle cx="150" cy="150" r="135" fill="none" stroke="#941a10" stroke-width="1.3"/>
+
+  <!-- Top curved text: WE CRAFT STORIES -->
+  <text fill="#941a10" font-family="Lato, 'Helvetica Neue', Arial, sans-serif"
+        font-size="11.5" font-weight="300" letter-spacing="3.5">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">WE CRAFT STORIES</textPath>
+  </text>
+
+  <!-- Bottom curved text: LET THEM CRAFT YOURS -->
+  <text fill="#941a10" font-family="Lato, 'Helvetica Neue', Arial, sans-serif"
+        font-size="11.5" font-weight="300" letter-spacing="2.5">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">LET THEM CRAFT YOURS</textPath>
+  </text>
+
+  <!-- Centre wordmark -->
+  <text x="153" y="142" text-anchor="middle" fill="#941a10"
+        font-family="Lato, 'Helvetica Neue', Arial, sans-serif"
+        font-size="29" font-weight="300" letter-spacing="6">CRAFTED</text>
+
+  <!-- Thin horizontal separator -->
+  <line x1="74" y1="152" x2="228" y2="152" stroke="#941a10" stroke-width="0.8"/>
+
+  <text x="153" y="176" text-anchor="middle" fill="#941a10"
+        font-family="Lato, 'Helvetica Neue', Arial, sans-serif"
+        font-size="29" font-weight="700" letter-spacing="6">STORIES</text>
+</svg>
