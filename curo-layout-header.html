@@ -1,0 +1,41 @@
+<!--
+  Crafted Stories — siteData.layout.header
+  Plak dit blok in Curo onder Layout > Header.
+
+  PublicShell vervangt automatisch:
+    <!-- LOGO -->       met het site-logo
+    <!-- NAV_ITEMS -->  met de geconfigureerde menu-items
+
+  De placeholders blijven hier staan; de hardcoded items eronder
+  dienen alleen als fallback voor de lokale preview en kun je
+  desgewenst weghalen.
+-->
+<header class="cs-header" role="banner">
+  <nav class="cs-header__inner" aria-label="Hoofdnavigatie">
+    <a class="cs-header__logo" href="/" aria-label="Crafted Stories – home">
+      <!-- LOGO -->
+    </a>
+
+    <div class="cs-header__nav">
+      <ul class="cs-header__menu" role="list">
+        <!-- NAV_ITEMS -->
+      </ul>
+      <button id="lang-toggle" class="cs-lang-btn lang-toggle-btn" aria-label="Switch to English">
+        <span class="lang-flag">&#127468;&#127463;</span><span class="lang-code">EN</span>
+      </button>
+    </div>
+
+    <button id="mobile-toggle" class="cs-mobile-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="cs-mobile-menu">
+    <ul>
+      <!-- NAV_ITEMS_MOBILE -->
+      <li><button id="lang-toggle-mobile" class="lang-toggle-btn"><span class="lang-flag">&#127468;&#127463;</span> <span class="lang-code">EN</span></button></li>
+    </ul>
+  </div>
+</header>

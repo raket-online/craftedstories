@@ -1,0 +1,126 @@
+<!--
+  Crafted Stories — siteData.layout.footer
+  Plak dit blok in Curo onder Layout > Footer.
+
+  Bevat:
+    1. de footer-HTML (drie kolommen + onderbalk)
+    2. een <script> aan het einde dat over alle pagina's draait:
+       - mobile menu toggle
+       - taal-toggle NL/EN met localStorage en browser-detectie
+       - scroll-reveal animaties
+
+  PublicShell rendert dit blok rechtstreeks via v-html (zie
+  components/PublicShell.vue regel ~246), dus de inline <script>
+  wordt gewoon uitgevoerd.
+-->
+<footer class="cs-footer" role="contentinfo">
+  <div class="cs-footer__inner">
+    <div class="cs-footer__grid">
+
+      <div class="cs-footer__intro">
+        <img src="logo.webp" alt="Crafted Stories">
+        <p data-lang="nl">Handgemaakte producten met een verhaal. Een plek van hoop, eerlijkheid en verbinding in het hart van Amsterdam.</p>
+        <p data-lang="en">Handcrafted products with a story. A place of hope, honesty and connection in the heart of Amsterdam.</p>
+        <p class="cs-footer__small" data-lang="nl">
+          Crafted Stories is onderdeel van
+          <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener">Scharlaken Koord</a> /
+          <a href="https://www.thdv.nl" target="_blank" rel="noopener">Tot Heil des Volks</a>.
+        </p>
+        <p class="cs-footer__small" data-lang="en">
+          Crafted Stories is part of
+          <a href="https://www.scharlakenkoord.nl" target="_blank" rel="noopener">Scharlaken Koord</a> /
+          <a href="https://www.thdv.nl" target="_blank" rel="noopener">Tot Heil des Volks</a>.
+        </p>
+      </div>
+
+      <div>
+        <h3 data-lang="nl">Navigatie</h3>
+        <h3 data-lang="en">Navigate</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/producten"><span data-lang="nl">Collectie</span><span data-lang="en">Collection</span></a></li>
+          <li><a href="/over-ons">Our Story</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 data-lang="nl">Bezoek ons</h3>
+        <h3 data-lang="en">Visit us</h3>
+        <address>
+          <p>Noordermarkt 45</p>
+          <p>1015 NA Amsterdam</p>
+          <p data-lang="nl">Ma&ndash;Za: 10:00&ndash;17:00</p>
+          <p data-lang="en">Mon&ndash;Sat: 10:00&ndash;17:00</p>
+          <p><a href="mailto:info@craftedstories.nl">info@craftedstories.nl</a></p>
+        </address>
+      </div>
+    </div>
+
+    <div class="cs-footer__bottom">
+      <p>&copy; 2026 Crafted Stories.
+        <span data-lang="nl">Alle rechten voorbehouden.</span>
+        <span data-lang="en">All rights reserved.</span>
+      </p>
+      <p>Noordermarkt 45, Amsterdam</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // ----- Mobile menu -----
+  var toggle = document.getElementById('mobile-toggle');
+  var menu   = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    });
+  }
+
+  // ----- Taal-toggle (NL / EN) -----
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    var isNL = lang === 'nl';
+    document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
+      var flag = btn.querySelector('.lang-flag');
+      var code = btn.querySelector('.lang-code');
+      if (flag) flag.textContent = isNL ? '🇬🇧' : '🇳🇱';
+      if (code) code.textContent = isNL ? 'EN' : 'NL';
+      btn.setAttribute('aria-label', isNL ? 'Switch to English' : 'Naar Nederlands');
+    });
+    try { localStorage.setItem('cs-lang', lang); } catch (e) {}
+  }
+  function detectLang() {
+    try {
+      var s = localStorage.getItem('cs-lang');
+      if (s === 'nl' || s === 'en') return s;
+    } catch (e) {}
+    var bl = (navigator.language || 'en').toLowerCase();
+    return bl.indexOf('nl') === 0 ? 'nl' : 'en';
+  }
+  setLang(detectLang());
+  document.querySelectorAll('.lang-toggle-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setLang(document.documentElement.lang === 'nl' ? 'en' : 'nl');
+    });
+  });
+
+  // ----- Scroll-reveal -----
+  var reveals = document.querySelectorAll('.cs-reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) e.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+})();
+</script>

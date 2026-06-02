@@ -1,0 +1,378 @@
+/* ============================================================
+   Crafted Stories — custom CSS voor Curo
+   ------------------------------------------------------------
+   Bestemd voor BrandingData.customCss (eenmaal geconfigureerd
+   in curo.one). Wordt door generateSiteCSS() aan het einde van
+   /site/[id]/style.css gehangen.
+
+   FONT DEPENDENCY
+   ----------------
+   Vereist 'Playfair Display' (headings) + 'Lato' (body).
+   Configureer hiervoor de Curo designStyle die deze fonts laadt
+   (bv. 'editorial'), of voeg in siteData.layout.header een
+   <link> naar Google Fonts toe.
+
+   BRAND TOKENS
+   ------------
+   Stel BrandingData.colors zo in:
+     primary   = #941a10   (rood)
+     secondary = #6d1209   (donker rood, hover)
+     accent    = #b82214   (lichter rood)
+     neutral   = #6b5a52   (warm grijs)
+     text      = #2c1810   (warm bruin)
+
+   De CSS gebruikt Curo's --brand-* vars met hex-fallback,
+   dus de pagina werkt ook zonder branding-config.
+   ============================================================ */
+
+:root {
+  --cs-primary:       var(--brand-primary,   #941a10);
+  --cs-primary-dark:  var(--brand-secondary, #6d1209);
+  --cs-primary-light: var(--brand-accent,    #b82214);
+  --cs-warm-brown:    var(--brand-text,      #2c1810);
+  --cs-warm-gray:     var(--brand-neutral,   #6b5a52);
+  --cs-cream:         #f0ebe0;
+  --cs-cream-dark:    #e2d9c8;
+}
+
+/* ============================================================
+   Basis
+   ============================================================ */
+body {
+  background: #fff;
+  color: var(--cs-warm-brown);
+  font-family: 'Lato', system-ui, sans-serif;
+}
+.cs h1, .cs h2, .cs h3, .cs h4,
+.cs-footer h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--cs-warm-brown);
+  margin: 0;
+}
+.cs h1, .cs h2, .cs h3, .cs h4 { color: var(--cs-warm-brown); }
+.cs p { margin: 0; }
+.cs ul { list-style: none; margin: 0; padding: 0; }
+.cs img { display: block; max-width: 100%; height: auto; }
+.cs a { color: inherit; text-decoration: none; }
+
+/* Skip link (a11y) */
+.cs-skip { position: absolute; left: -9999px; top: auto; }
+.cs-skip:focus {
+  left: .5rem; top: .5rem;
+  background: var(--cs-primary); color: #fff;
+  padding: .5rem 1rem; z-index: 50;
+}
+
+/* ============================================================
+   Tweetalig — werkt samen met setLang() in layout.footer JS
+   ============================================================ */
+[data-lang="en"] { display: none; }
+html[lang="en"] [data-lang="nl"] { display: none; }
+html[lang="en"] [data-lang="en"] { display: revert; }
+
+/* ============================================================
+   HEADER (siteData.layout.header)
+   ============================================================ */
+.cs-header {
+  background: #fff;
+  border-bottom: 1px solid var(--cs-cream-dark);
+  position: sticky; top: 0; z-index: 40;
+  font-family: 'Lato', system-ui, sans-serif;
+}
+.cs-header__inner {
+  max-width: 72rem; margin: 0 auto;
+  padding: 1rem; display: flex;
+  align-items: center; justify-content: space-between;
+}
+.cs-header__logo img { height: 3rem; width: auto; display: block; }
+.cs-header__nav { display: none; align-items: center; gap: 2rem; }
+.cs-header__menu {
+  display: flex; gap: 2rem; list-style: none;
+  margin: 0; padding: 0; align-items: center;
+}
+.cs-nav-link {
+  position: relative;
+  color: var(--cs-warm-brown); text-decoration: none;
+  font-size: .75rem; letter-spacing: .1em;
+  text-transform: uppercase; transition: color .2s ease;
+}
+.cs-nav-link::after {
+  content: ''; position: absolute; left: 0; bottom: -2px;
+  width: 0; height: 1px;
+  background: var(--cs-primary);
+  transition: width .3s ease;
+}
+.cs-nav-link:hover, .cs-nav-link.is-active { color: var(--cs-primary); }
+.cs-nav-link:hover::after, .cs-nav-link.is-active::after { width: 100%; }
+
+.cs-lang-btn {
+  display: inline-flex; align-items: center; gap: .375rem;
+  padding: .375rem .75rem;
+  background: transparent; cursor: pointer;
+  border: 1px solid var(--cs-cream-dark);
+  color: var(--cs-warm-gray);
+  font-size: .75rem; letter-spacing: .1em;
+  text-transform: uppercase; font-family: inherit;
+  transition: color .2s ease;
+}
+.cs-lang-btn:hover { color: var(--cs-primary); }
+
+.cs-mobile-toggle {
+  display: inline-flex; padding: .5rem;
+  background: transparent; border: 0; cursor: pointer;
+  color: var(--cs-warm-brown);
+}
+.cs-mobile-menu {
+  display: none; background: #fff;
+  border-top: 1px solid var(--cs-cream-dark);
+}
+.cs-mobile-menu ul {
+  list-style: none; margin: 0;
+  padding: 1rem; display: flex;
+  flex-direction: column; gap: .25rem;
+}
+.cs-mobile-menu a, .cs-mobile-menu button {
+  display: block; padding: .75rem .5rem;
+  color: var(--cs-warm-brown); text-decoration: none;
+  font-size: .875rem; letter-spacing: .1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--cs-cream);
+  border-left: 0; border-right: 0; border-top: 0;
+  background: transparent;
+  width: 100%; text-align: left; cursor: pointer;
+  font-family: inherit;
+}
+.cs-mobile-menu a.is-active { color: var(--cs-primary); }
+.cs-mobile-menu.is-open { display: block; }
+@media (min-width: 768px) {
+  .cs-header__nav { display: flex; }
+  .cs-mobile-toggle { display: none; }
+  .cs-mobile-menu { display: none !important; }
+}
+
+/* ============================================================
+   Layout primitieven (page.content)
+   ============================================================ */
+.cs-container { max-width: 72rem; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
+.cs-container--narrow { max-width: 48rem; }
+.cs-container--wide   { max-width: 64rem; }
+.cs-section     { padding-top: 6rem; padding-bottom: 6rem; }
+.cs-section--sm { padding-top: 5rem; padding-bottom: 5rem; }
+.cs-section--alt   { background: var(--cs-cream); }
+.cs-section--brand { background: var(--cs-primary); color: #fff; }
+
+.cs-grid { display: grid; gap: 2.5rem; }
+.cs-grid--items-center { align-items: center; }
+@media (min-width: 768px) {
+  .cs-grid--2    { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  .cs-grid--3    { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .cs-grid--4    { grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+  .cs-grid--hero { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+}
+
+/* Hero-patroon achtergrond */
+.cs-pattern {
+  background-color: var(--cs-cream);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23941a10' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   Tekstmodifiers
+   ============================================================ */
+.cs-eyebrow {
+  color: var(--cs-primary);
+  font-size: .75rem; letter-spacing: .15em;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 1rem;
+}
+.cs-eyebrow--sm { margin-bottom: .75rem; }
+
+.cs-h1   { font-size: clamp(2.75rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+.cs-h1 em { color: var(--cs-primary); font-style: normal; }
+.cs-h2   { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.cs-h2--lg { font-size: clamp(2.25rem, 4.5vw, 3rem); margin-bottom: 2rem; }
+.cs-h3       { font-size: 1.25rem;  margin-bottom: 1rem; }
+.cs-h3--card { font-size: 1.125rem; margin-bottom: .75rem; }
+
+.cs-lead    { color: var(--cs-warm-gray); font-size: 1.125rem; line-height: 1.7; font-weight: 300; }
+.cs-body    { color: var(--cs-warm-gray); line-height: 1.7; font-weight: 300; }
+.cs-body--sm{ color: var(--cs-warm-gray); font-size: .875rem; line-height: 1.7; font-weight: 300; }
+.cs-body + .cs-body, .cs-lead + .cs-lead { margin-top: 1rem; }
+
+.cs-divider         { width: 3rem; height: 1px; background: var(--cs-primary); margin: 0 auto; }
+.cs-divider--white  { width: 3rem; height: 1px; background: rgba(255,255,255,.4); margin: 0 auto 1.5rem; }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.cs-btn {
+  display: inline-block; padding: .875rem 2rem;
+  font-size: .75rem; letter-spacing: .15em;
+  text-transform: uppercase; font-family: 'Lato', sans-serif;
+  transition: background-color .2s ease, color .2s ease;
+  cursor: pointer; border: 0; text-align: center;
+}
+.cs-btn--primary { background: var(--cs-primary); color: #fff; }
+.cs-btn--primary:hover { background: var(--cs-primary-dark); }
+.cs-btn--outline { background: transparent; color: var(--cs-primary); border: 1px solid var(--cs-primary); }
+.cs-btn--outline:hover { background: var(--cs-primary); color: #fff; }
+.cs-btn--ghost {
+  background: transparent; color: var(--cs-warm-brown);
+  border: 1px solid var(--cs-warm-brown); padding: .875rem 2.5rem;
+}
+.cs-btn--ghost:hover { background: var(--cs-warm-brown); color: #fff; }
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.cs-hero { min-height: 90vh; display: flex; align-items: center; position: relative; }
+.cs-hero__inner { padding: 6rem 1rem; }
+.cs-hero__text  { order: 2; }
+.cs-hero__media { order: 1; }
+@media (min-width: 768px) {
+  .cs-hero__text  { order: 1; }
+  .cs-hero__media { order: 2; }
+}
+.cs-hero__lead { max-width: 28rem; }
+.cs-hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+
+.cs-frame { position: relative; }
+.cs-frame img { width: 100%; aspect-ratio: 4/5; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+.cs-frame__accent {
+  position: absolute; bottom: -1rem; right: -1rem;
+  width: 100%; height: 100%;
+  border: 2px solid var(--cs-primary); opacity: .1; z-index: -1;
+}
+.cs-frame__accent--left { right: auto; left: -1rem; }
+
+.cs-hero__scroll {
+  position: absolute; bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center;
+  gap: .5rem; color: var(--cs-warm-gray); opacity: .5;
+}
+.cs-hero__scroll span { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; }
+.cs-hero__scroll-line {
+  width: 1px; height: 2rem; background: var(--cs-warm-gray);
+  animation: cs-bounce 1.5s infinite;
+}
+@keyframes cs-bounce {
+  0%, 100% { transform: translateY(-10%); }
+  50%      { transform: translateY(10%); }
+}
+
+/* ============================================================
+   Verhaal-cards
+   ============================================================ */
+.cs-card { background: #fff; overflow: hidden; }
+.cs-card img { width: 100%; height: 12rem; object-fit: cover; }
+.cs-card__body { padding: 2rem; }
+
+/* ============================================================
+   Productentile (hover-zoom)
+   ============================================================ */
+.cs-tile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+.cs-tile { position: relative; overflow: hidden; aspect-ratio: 1/1; }
+.cs-tile img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+}
+.cs-tile:hover img { transform: scale(1.05); }
+.cs-tile__overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; padding: 1rem;
+  background: linear-gradient(to top, rgba(44,24,16,.6) 0%, transparent 60%);
+}
+.cs-tile__label {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #fff; font-size: .875rem;
+}
+
+/* ============================================================
+   Quote-sectie
+   ============================================================ */
+.cs-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-style: italic; line-height: 1.4; margin-bottom: 1.5rem;
+}
+.cs-quote-tag { font-size: .875rem; letter-spacing: .15em; text-transform: uppercase; opacity: .7; }
+
+/* ============================================================
+   Bezoek-blok
+   ============================================================ */
+.cs-info { display: flex; flex-direction: column; gap: 1rem; font-size: .875rem; }
+.cs-info__row { display: flex; gap: .75rem; align-items: flex-start; }
+.cs-info__icon { color: var(--cs-primary); margin-top: .125rem; width: 1rem; flex-shrink: 0; }
+.cs-info__row strong { color: var(--cs-warm-brown); font-weight: 600; }
+.cs-info__row p { color: var(--cs-warm-gray); font-weight: 300; }
+.cs-info__link { color: var(--cs-primary); }
+.cs-info__link:hover { color: var(--cs-primary-dark); }
+
+/* ============================================================
+   Meedoen-tegels
+   ============================================================ */
+.cs-pillar { text-align: center; padding: 2rem; border: 1px solid var(--cs-cream); }
+.cs-pillar__icon { color: var(--cs-primary); margin-bottom: 1.25rem; display: inline-flex; }
+
+/* ============================================================
+   Inline link "read more"
+   ============================================================ */
+.cs-readmore {
+  display: inline-flex; align-items: center; gap: .5rem;
+  color: var(--cs-primary);
+  font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
+  transition: gap .2s ease;
+}
+.cs-readmore:hover { gap: 1rem; }
+
+/* ============================================================
+   Scroll-reveal — wordt aangezet door layout.footer script
+   ============================================================ */
+.cs-reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.cs-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   FOOTER (siteData.layout.footer)
+   ============================================================ */
+.cs-footer {
+  background: var(--cs-warm-brown);
+  color: #fff; padding: 4rem 0;
+  font-family: 'Lato', system-ui, sans-serif;
+}
+.cs-footer__inner { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+.cs-footer__grid { display: grid; gap: 3rem; margin-bottom: 3rem; }
+@media (min-width: 768px) {
+  .cs-footer__grid { grid-template-columns: 2fr 1fr 1fr; gap: 3rem; }
+}
+.cs-footer h3 { color: #fff; font-size: 1.125rem; margin: 0 0 1rem; }
+.cs-footer p,
+.cs-footer address {
+  color: rgba(255,255,255,.6);
+  font-size: .875rem; line-height: 1.7;
+  font-weight: 300; font-style: normal;
+}
+.cs-footer ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.cs-footer a {
+  color: rgba(255,255,255,.6); text-decoration: none;
+  font-size: .875rem; transition: opacity .2s;
+}
+.cs-footer a:hover { color: #fff; }
+.cs-footer__intro img { height: 2.5rem; margin-bottom: 1rem; filter: brightness(0) invert(1); opacity: .9; }
+.cs-footer__intro p { max-width: 24rem; }
+.cs-footer__small { color: rgba(255,255,255,.4); font-size: .75rem; margin-top: 1rem; }
+.cs-footer__small a { color: inherit; text-decoration: underline; }
+.cs-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 2rem;
+  display: flex; flex-direction: column; gap: 1rem;
+  color: rgba(255,255,255,.4);
+  font-size: .75rem; text-align: center;
+}
+@media (min-width: 640px) {
+  .cs-footer__bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+}
