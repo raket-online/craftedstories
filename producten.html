@@ -14,88 +14,18 @@
   <meta property="og:url" content="https://www.craftedstories.nl/producten.html">
   <meta property="og:title" content="Collectie – Crafted Stories Amsterdam">
   <meta property="og:description" content="Ontdek de collectie van Crafted Stories: handgemaakte textiel, eerlijke cadeaus, sieraden en tweedehands kleding. Elk product vertelt een verhaal van hoop en vakmanschap.">
-  <meta property="og:image" content="https://www.craftedstories.nl/images/IMG-20260319-WA0007.jpg">
+  <meta property="og:image" content="https://www.craftedstories.nl/images/textiel-kussens-sjaal-met-verhaal.webp">
   <meta property="og:locale" content="nl_NL">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Collectie – Crafted Stories Amsterdam">
   <meta name="twitter:description" content="Ontdek de collectie van Crafted Stories: handgemaakte textiel, eerlijke cadeaus, sieraden en tweedehands kleding.">
-  <meta name="twitter:image" content="https://www.craftedstories.nl/images/IMG-20260319-WA0007.jpg">
+  <meta name="twitter:image" content="https://www.craftedstories.nl/images/textiel-kussens-sjaal-met-verhaal.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#941a10',
-            'primary-dark': '#6d1209',
-            'primary-light': '#b82214',
-            cream: '#f0ebe0',
-            'cream-dark': '#e2d9c8',
-            'warm-brown': '#2c1810',
-            'warm-gray': '#6b5a52',
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['Lato', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Lato', system-ui, sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
-    .nav-link { position: relative; }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 1px;
-      background: #941a10;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-    .hero-pattern {
-      background-color: #f0ebe0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23941a10' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .scroll-reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-    [data-lang="en"] { display: none; }
-    html[lang="en"] [data-lang="nl"] { display: none; }
-    html[lang="en"] [data-lang="en"] { display: revert; }
-
-    /* Category layout */
-    .category-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-bottom: 6rem;
-    }
-    .category-card:nth-child(even) > :first-child { order: 2; }
-    .category-card:nth-child(even) > :last-child  { order: 1; }
-    @media (max-width: 768px) {
-      .category-card { grid-template-columns: 1fr; }
-      .category-card:nth-child(even) > :first-child,
-      .category-card:nth-child(even) > :last-child { order: unset; }
-    }
-
-    /* Donation box */
-    .donation-box {
-      background-color: #f9f7f3;
-      border-left: 4px solid #941a10;
-      padding: 2rem;
-    }
-  </style>
+  <link rel="stylesheet" href="tailwind.css">
 </head>
 <body class="bg-white text-warm-brown">
 
@@ -178,14 +108,14 @@
     <section class="max-w-6xl mx-auto px-4 py-12" aria-hidden="true">
       <div class="flex flex-col md:flex-row gap-4 h-auto md:h-[520px] scroll-reveal">
         <div class="md:flex-[2] h-64 md:h-full overflow-hidden">
-          <img src="images/IMG-20260319-WA0002.jpg" alt="Overzicht van de Crafted Stories winkel" class="w-full h-full object-cover rounded">
+          <img src="images/winkel-crafted-stories-amsterdam.webp" alt="Overzicht van de Crafted Stories winkel" class="w-full h-full object-cover rounded">
         </div>
         <div class="md:flex-1 flex flex-col gap-4">
           <div class="flex-1 overflow-hidden min-h-0">
-            <img src="images/IMG-20260319-WA0009.jpg" alt="Toonbank met kaarten en sfeerverlichting" class="w-full h-full object-cover rounded">
+            <img src="images/toonbank-crafted-stories-amsterdam.webp" alt="Toonbank met kaarten en sfeerverlichting" class="w-full h-full object-cover rounded">
           </div>
           <div class="flex-1 overflow-hidden min-h-0">
-            <img src="images/IMG-20260319-WA0008.jpg" alt="Kleurrijke kussens en textiel" class="w-full h-full object-cover rounded">
+            <img src="images/kussens-sjaal-met-verhaal.webp" alt="Kleurrijke kussens en textiel" class="w-full h-full object-cover rounded">
           </div>
         </div>
       </div>
@@ -208,7 +138,7 @@
       <!-- Categorie 1: Textiel & Kussens -->
       <div class="category-card scroll-reveal">
         <div class="overflow-hidden rounded shadow-md">
-          <img src="images/IMG-20260319-WA0007.jpg" alt="Kleurrijke kussens en textielproducten van Sjaal met Verhaal" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
+          <img src="images/textiel-kussens-sjaal-met-verhaal.webp" alt="Kleurrijke kussens en textielproducten van Sjaal met Verhaal" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
         </div>
         <div>
           <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
@@ -231,7 +161,7 @@
       <!-- Categorie 2: Handgemaakte Cadeaus -->
       <div class="category-card scroll-reveal">
         <div class="overflow-hidden rounded shadow-md">
-          <img src="images/IMG-20260319-WA0011.jpg" alt="Handgemaakte cadeaus en keramiek op een tafel" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
+          <img src="images/handgemaakte-cadeaus-keramiek.webp" alt="Handgemaakte cadeaus en keramiek op een tafel" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
         </div>
         <div>
           <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
@@ -254,7 +184,7 @@
       <!-- Categorie 3: Tweedehands Kleding -->
       <div class="category-card scroll-reveal">
         <div class="overflow-hidden rounded shadow-md">
-          <img src="images/IMG-20260319-WA0012.jpg" alt="Tweedehands kleding afdeling met kledingrekken" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
+          <img src="images/tweedehands-kleding-crafted-stories.webp" alt="Tweedehands kleding afdeling met kledingrekken" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
         </div>
         <div>
           <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">
@@ -277,7 +207,7 @@
       <!-- Categorie 4: Home & Sfeer -->
       <div class="category-card scroll-reveal">
         <div class="overflow-hidden rounded shadow-md">
-          <img src="images/IMG-20260319-WA0010.jpg" alt="Sfeerhoekje met droogbloemen en boeken" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
+          <img src="images/droogbloemen-boeken-crafted-stories.webp" alt="Sfeerhoekje met droogbloemen en boeken" class="w-full aspect-[4/3] object-cover hover:scale-105 transition-transform duration-500">
         </div>
         <div>
           <p class="text-primary text-xs tracking-widest uppercase mb-3 font-sans">

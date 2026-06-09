@@ -14,134 +14,18 @@
   <meta property="og:url" content="https://www.craftedstories.nl/contact.html">
   <meta property="og:title" content="Contact – Crafted Stories Amsterdam | Noordermarkt 45">
   <meta property="og:description" content="Neem contact op met Crafted Stories. Bezoek ons op Noordermarkt 45, Amsterdam. Open maandag t/m zaterdag 10:00–17:00.">
-  <meta property="og:image" content="https://www.craftedstories.nl/images/IMG-20260319-WA0006.jpg">
+  <meta property="og:image" content="https://www.craftedstories.nl/images/koffiehoek-crafted-stories-amsterdam.webp">
   <meta property="og:locale" content="nl_NL">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact – Crafted Stories Amsterdam">
   <meta name="twitter:description" content="Bezoek ons op Noordermarkt 45, Amsterdam. Open maandag t/m zaterdag 10:00–17:00.">
-  <meta name="twitter:image" content="https://www.craftedstories.nl/images/IMG-20260319-WA0006.jpg">
+  <meta name="twitter:image" content="https://www.craftedstories.nl/images/koffiehoek-crafted-stories-amsterdam.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#941a10',
-            'primary-dark': '#6d1209',
-            'primary-light': '#b82214',
-            cream: '#f0ebe0',
-            'cream-dark': '#e2d9c8',
-            'warm-brown': '#2c1810',
-            'warm-gray': '#6b5a52',
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['Lato', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <style>
-    body { font-family: 'Lato', system-ui, sans-serif; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
-    .nav-link { position: relative; }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 1px;
-      background: #941a10;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-    .hero-pattern {
-      background-color: #f0ebe0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23941a10' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .scroll-reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-    [data-lang="en"] { display: none; }
-    html[lang="en"] [data-lang="nl"] { display: none; }
-    html[lang="en"] [data-lang="en"] { display: revert; }
-
-    /* Form styles */
-    .form-input {
-      border: 1px solid #e2d9c8;
-      padding: 12px;
-      font-family: 'Lato', sans-serif;
-      font-size: 16px;
-      width: 100%;
-      transition: border-color 0.3s ease;
-      outline: none;
-    }
-    .form-input:focus {
-      border-color: #941a10;
-      box-shadow: 0 0 0 3px rgba(148, 26, 16, 0.1);
-    }
-    .form-error {
-      color: #dc2626;
-      font-size: 14px;
-      margin-top: 4px;
-      display: none;
-    }
-    .form-error.show { display: block; }
-    .form-success {
-      background-color: rgba(34, 197, 94, 0.1);
-      border: 1px solid #22c55e;
-      color: #15803d;
-      padding: 16px;
-      margin-bottom: 20px;
-      display: none;
-    }
-    .form-success.show { display: block; }
-
-    /* Accordion */
-    .accordion-item { border-bottom: 1px solid #e2d9c8; }
-    .accordion-header {
-      background: transparent;
-      border: none;
-      width: 100%;
-      padding: 20px 0;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.1rem;
-      color: #2c1810;
-      transition: color 0.3s ease;
-    }
-    .accordion-header:hover { color: #941a10; }
-    .accordion-toggle {
-      width: 24px; height: 24px;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-    }
-    .accordion-item.open .accordion-toggle { transform: rotate(180deg); }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      color: #6b5a52;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-    .accordion-item.open .accordion-content {
-      max-height: 500px;
-      padding-bottom: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="tailwind.css">
 </head>
 <body class="bg-white text-warm-brown">
 
@@ -305,7 +189,7 @@
               </div>
             </div>
 
-            <img src="images/IMG-20260319-WA0006.jpg" alt="De gezellige koffiehoek van Crafted Stories met droogbloemen" class="w-full shadow-lg">
+            <img src="images/koffiehoek-crafted-stories-amsterdam.webp" alt="De gezellige koffiehoek van Crafted Stories met droogbloemen" class="w-full shadow-lg">
           </div>
         </div>
       </div>
