@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafted Stories</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var path = window.location.pathname;
+
+      // Detect language from URL prefix and persist it
+      var lang = /^\/nl\//.test(path) ? 'nl' : /^\/en\//.test(path) ? 'en' : null;
+      if (lang) {
+        try { localStorage.setItem('cs-lang', lang); } catch (e) {}
+      }
+
+      // Map old URL patterns to new pages
+      var target = '/';
+
+      if (/\/(nl|en)\/service\/about/.test(path)) {
+        target = '/over-ons.html';
+      } else if (/\/(nl|en)\/service\/contact/.test(path)) {
+        target = '/contact.html';
+      } else if (/\/(nl|en)\/service/.test(path)) {
+        target = '/contact.html';
+      } else if (/\/(nl|en)\/(webshop|collection|brands)/.test(path)) {
+        target = '/producten.html';
+      } else if (/\/(nl|en)\/[^/]+\.html$/.test(path)) {
+        // Individual product pages → collectie
+        target = '/producten.html';
+      }
+
+      window.location.replace(target);
+    })();
+  </script>
+  <style>
+    body { margin: 0; font-family: Lato, sans-serif; background: #f0ebe0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .msg { text-align: center; color: #6b5a52; }
+    .msg a { color: #941a10; }
+  </style>
+</head>
+<body>
+  <div class="msg">
+    <p>Je wordt doorgestuurd… <a href="/">Klik hier</a> als dat niet lukt.</p>
+  </div>
+</body>
+</html>
